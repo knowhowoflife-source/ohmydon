@@ -96,51 +96,43 @@
       gap: 0;
     }
 
-    /* ── LOGO ── */
+    /* ── LOGO — Toss/Upbit 스타일 워드마크 ── */
     .logo {
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 2px;
+      gap: 8px;
       line-height: 1;
     }
 
-    /* "oh" — 다크, 이탤릭 */
-    .logo-oh {
-      font-size: 21px;
-      font-weight: 900;
-      font-style: italic;
-      color: var(--slate-950);
-      letter-spacing: -1px;
-    }
-
-    /* "!" — 토스 블루 */
-    .logo-exclaim {
-      color: var(--blue-600);
-      font-style: italic;
-    }
-
-    /* "my" — 라이트, 그레이 */
-    .logo-my {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--slate-400);
-      letter-spacing: 0.2px;
-      align-self: flex-end;
-      padding-bottom: 2px;
-      margin-left: 1px;
-    }
-
-    /* "돈" — 블루 뱃지, 더 정교하게 */
-    .logo-don {
-      font-size: 19px;
-      font-weight: 800;
+    /* 심볼 마크 — 파란 사각 아이콘 */
+    .logo-mark {
+      width: 28px; height: 28px;
       background: var(--blue-600);
-      color: #fff;
-      padding: 2px 8px 3px;
       border-radius: 8px;
-      margin-left: 4px;
-      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      flex-shrink: 0;
+      letter-spacing: 0;
+    }
+
+    /* 워드마크 */
+    .logo-wordmark {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--slate-950);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-wordmark .logo-don-color {
+      color: var(--blue-600);
+      font-weight: 800;
     }
 
     /* ── NAV — 토스 스타일: 이모지 없음, 심플 텍스트 ── */
@@ -314,13 +306,13 @@
       background: var(--white);
       border: 1.5px solid var(--slate-200);
       border-radius: 24px;
-      padding: 28px 40px 26px;
+      padding: 28px 44px 26px;
       box-shadow:
         0 0 0 1px rgba(49,130,246,0.04),
         0 8px 32px rgba(25,31,40,0.08),
         0 2px 8px rgba(25,31,40,0.04);
       text-align: left;
-      min-width: 360px;
+      min-width: 460px;
     }
 
     /* 상단: 날짜 + LIVE 뱃지 */
@@ -372,10 +364,10 @@
 
     .fomo-bignum {
       font-family: 'Plus Jakarta Sans', -apple-system, 'SF Pro Display', sans-serif;
-      font-size: clamp(44px, 7.5vw, 72px);
+      font-size: clamp(36px, 5.5vw, 58px);
       font-weight: 800;
       color: var(--slate-950);
-      letter-spacing: -2.5px;
+      letter-spacing: -1.5px;
       font-variant-numeric: tabular-nums;
       font-feature-settings: "tnum";
       line-height: 1;
@@ -1373,20 +1365,16 @@
 <header id="site-header">
   <div class="header-inner">
     <a href="#" class="logo">
-      <span class="logo-oh">oh<span class="logo-exclaim">!</span></span>
-      <span class="logo-my">my</span>
-      <span class="logo-don">돈</span>
+      <div class="logo-mark">₩</div>
+      <span class="logo-wordmark">oh!my<span class="logo-don-color">돈</span></span>
     </a>
 
     <nav>
-      <a href="#crypto" class="active">코인 이벤트</a>
-      <a href="#sns">SNS</a>
-      <a href="#apptech">앱테크</a>
-      <a href="#etc">기타혜택</a>
+      <a href="#events" class="active">대기업 이벤트</a>
     </nav>
 
     <div class="header-right">
-      <a href="#crypto" class="btn-header">혜택 받기</a>
+      <a href="#events" class="btn-header">혜택 받기</a>
       <div class="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
@@ -1394,11 +1382,8 @@
   </div>
 
   <div class="mobile-nav" id="mobileNav">
-    <a href="#crypto" onclick="toggleMenu()">코인 이벤트</a>
-    <a href="#sns" onclick="toggleMenu()">SNS 이벤트</a>
-    <a href="#apptech" onclick="toggleMenu()">앱테크 부업</a>
-    <a href="#etc" onclick="toggleMenu()">기타 혜택</a>
-    <a href="#crypto" class="mobile-cta" onclick="toggleMenu()">혜택 받기 →</a>
+    <a href="#events" onclick="toggleMenu()">대기업 회원 가입 이벤트</a>
+    <a href="#events" class="mobile-cta" onclick="toggleMenu()">혜택 받기 →</a>
   </div>
 </header>
 
@@ -1406,11 +1391,11 @@
 <section class="hero">
   <div class="hero-inner">
     <h1>
-      <span class="line-1">안 해서 못 받은 돈,</span>
-      <span class="line-2"><span class="hl">이번엔</span> 놓치지 마세요</span>
+      <span class="line-1">가입만 했는데</span>
+      <span class="line-2">돈이 <span class="hl">들어왔어요</span></span>
     </h1>
 
-    <p class="hero-sub">회원가입 하나로 현금처럼 쓸 수 있는 돈이 쌓입니다</p>
+    <p class="hero-sub">빗썸·코인원·틱톡 — 직접 받아보고 검증한 대기업 가입 혜택만 모았습니다</p>
 
     <!-- 증권 앱 스타일 금액 카드 -->
     <div class="fomo-card">
@@ -1423,13 +1408,13 @@
       </div>
 
       <div class="fomo-amount-row">
-        <span class="fomo-bignum" id="fomo-bignum">1,547</span>
-        <span class="fomo-man-unit">만원</span>
+        <span class="fomo-bignum" id="fomo-bignum">15,470,000</span>
+        <span class="fomo-man-unit">원</span>
       </div>
 
       <div class="fomo-change-row">
         <span class="arrow">▲</span>
-        <span id="fomo-change-amount">+7만원</span>
+        <span id="fomo-change-amount">+70,000원</span>
         <span class="fomo-change-sub">방금 지급됨</span>
       </div>
 
@@ -1470,9 +1455,10 @@
   </div>
 
   <!-- 코인 이벤트 -->
-  <div class="evt-section" id="crypto">
-    <div class="section-title fade-up">CRYPTO</div>
-    <div class="section-heading fade-up">💰 가상자산 가입 이벤트</div>
+  <!-- 대기업 회원 가입 이벤트 (통합) -->
+  <div class="evt-section" id="events">
+    <div class="section-title fade-up">EVENTS</div>
+    <div class="section-heading fade-up">대기업 회원 가입 이벤트</div>
     <div class="cards-grid">
 
       <div class="card fade-up">
@@ -1544,21 +1530,12 @@
         </div>
       </div>
 
-    </div>
-  </div>
-
-  <!-- SNS -->
-  <div class="evt-section" id="sns">
-    <div class="section-title fade-up">SNS</div>
-    <div class="section-heading fade-up">🎵 SNS / 앱 이벤트</div>
-    <div class="cards-grid">
-
       <div class="card fade-up">
         <div class="card-bar"></div>
         <div class="card-header">
           <div class="card-icon">🎵</div>
           <div class="card-meta">
-            <div class="card-label">SNS 앱</div>
+            <div class="card-label">글로벌 SNS 앱</div>
             <div class="card-title">틱톡 라이트</div>
             <div class="card-reward">최대 3만원</div>
           </div>
@@ -1579,93 +1556,6 @@
     </div>
   </div>
 
-  <!-- 앱테크 -->
-  <div class="evt-section" id="apptech">
-    <div class="section-title fade-up">APP TECH</div>
-    <div class="section-heading fade-up">📱 앱테크 부업</div>
-    <div class="cards-grid">
-
-      <div class="card fade-up">
-        <div class="card-bar"></div>
-        <div class="card-header">
-          <div class="card-icon">📲</div>
-          <div class="card-meta">
-            <div class="card-label">앱테크 모음</div>
-            <div class="card-title">앱테크 부업</div>
-            <div class="card-reward">월 5~10만원</div>
-          </div>
-        </div>
-        <div class="card-body">
-          <p class="card-desc">걷기, 영상 시청, 광고 보기만 해도 포인트가 쌓이는 앱테크 추천 목록. 스마트폰으로 짬짬이 수익 내기!</p>
-          <div class="card-tags">
-            <span class="tag">💡 추천</span>
-            <span class="tag">⏰ 틈새시간</span>
-            <span class="tag">📈 꾸준히</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-primary" onclick="openModal('apptech')">앱테크 목록 보기 →</button>
-        </div>
-      </div>
-
-      <div class="card fade-up">
-        <div class="card-bar"></div>
-        <div class="card-header">
-          <div class="card-icon">📝</div>
-          <div class="card-meta">
-            <div class="card-label">재택 부업</div>
-            <div class="card-title">설문조사</div>
-            <div class="card-reward">건당 500~5,000원</div>
-          </div>
-        </div>
-        <div class="card-body">
-          <p class="card-desc">집에서 설문에 참여하고 포인트 받기. 간단한 질문 답변만으로 현금처럼 사용 가능한 포인트 지급!</p>
-          <div class="card-tags">
-            <span class="tag">🏠 재택</span>
-            <span class="tag">⏱️ 5~10분</span>
-            <span class="tag">💳 현금전환</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-primary" onclick="openModal('survey')">설문 플랫폼 보기 →</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- 기타 -->
-  <div class="evt-section" id="etc">
-    <div class="section-title fade-up">FREE BENEFITS</div>
-    <div class="section-heading fade-up">🎁 기타 무료 혜택</div>
-    <div class="cards-grid">
-
-      <div class="card fade-up">
-        <div class="card-bar"></div>
-        <div class="card-header">
-          <div class="card-icon">🍬</div>
-          <div class="card-meta">
-            <div class="card-label">무료 이벤트</div>
-            <div class="card-title">공짜 간식 받기</div>
-            <div class="card-reward">무료 증정</div>
-          </div>
-        </div>
-        <div class="card-body">
-          <p class="card-desc">각종 앱 신규 가입 이벤트로 편의점 간식, 음료, 쿠폰 등을 무료로 받는 방법 총정리.</p>
-          <div class="card-tags">
-            <span class="tag">🆓 무료</span>
-            <span class="tag">🛒 편의점</span>
-            <span class="tag">🎟️ 쿠폰</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-primary" onclick="openModal('snack')">무료 혜택 보기 →</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
   <!-- NOTICE -->
   <div class="notice fade-up">
     ⚠ <strong>안내사항</strong> — 본 페이지는 각 서비스의 신규 가입 혜택을 안내하는 목적으로 제작되었습니다. 이벤트 조건 및 혜택은 각 플랫폼 정책에 따라 변경될 수 있으니, 가입 전 공식 앱 내 공지를 꼭 확인해 주세요. 초대코드를 통한 혜택은 신규 가입자만 적용 가능합니다.
@@ -1676,7 +1566,7 @@
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-logo">
-    <span class="foh">oh!</span><span class="fmy"> my </span><span class="fdon">돈</span>
+    oh!my<span style="color:var(--blue-600);font-weight:800;">돈</span>
   </div>
   직접 해보고 검증한 정보만 전달합니다.<br>
   본 사이트는 각 서비스의 공식 사이트가 아닙니다.<br>
@@ -2053,9 +1943,9 @@
       return m + '.' + d;
     }
 
-    // 만원 단위로 변환, 천 단위 쉼표: 15470000 → "1,547"
-    function toMan(won) {
-      return Math.floor(won / 10000).toLocaleString('ko-KR');
+    // 풀 숫자 포맷: 15470000 → "15,470,000"
+    function fmtWon(n) {
+      return n.toLocaleString('ko-KR');
     }
 
     // 초기 날짜 세팅
@@ -2066,9 +1956,9 @@
     var bigEl  = document.getElementById('fomo-bignum');
     var cntEl  = document.getElementById('fomo-count');
     var chgEl  = document.getElementById('fomo-change-amount');
-    if (bigEl) bigEl.textContent = toMan(amountWon);
+    if (bigEl) bigEl.textContent = fmtWon(amountWon);
     if (cntEl) cntEl.textContent = count.toLocaleString('ko-KR');
-    if (chgEl) chgEl.textContent = '+7만원';
+    if (chgEl) chgEl.textContent = '+70,000원';
 
     function updateFomo() {
       var inc = incList[incIdx % 2];
@@ -2078,13 +1968,13 @@
 
       if (bigEl) {
         bigEl.classList.remove('count-anim', 'flash');
-        void bigEl.offsetWidth;  // reflow — 애니메이션 재시작
-        bigEl.textContent = toMan(amountWon);
+        void bigEl.offsetWidth;
+        bigEl.textContent = fmtWon(amountWon);
         bigEl.classList.add('count-anim', 'flash');
         setTimeout(function() { bigEl.classList.remove('flash'); }, 600);
       }
       if (cntEl) cntEl.textContent = count.toLocaleString('ko-KR');
-      if (chgEl) chgEl.textContent = '+' + (inc / 10000) + '만원';
+      if (chgEl) chgEl.textContent = '+' + fmtWon(inc) + '원';
     }
 
     // 5초마다 번갈아 업데이트 (실시간 느낌)
