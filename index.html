@@ -70,23 +70,30 @@
        HEADER
     ============================================================ */
     header {
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--slate-200);
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid transparent;
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* 스크롤 시 미묘한 그림자 — 토스 방식 */
+    header.scrolled {
+      border-bottom-color: var(--slate-100);
+      box-shadow: 0 1px 0 var(--slate-100), 0 4px 20px rgba(25,31,40,0.05);
     }
 
     .header-inner {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 32px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      height: 64px;
+      height: 68px;
+      gap: 0;
     }
 
     /* ── LOGO ── */
@@ -136,22 +143,53 @@
       letter-spacing: -0.3px;
     }
 
-    /* ── NAV ── */
-    nav { display: flex; gap: 2px; flex-wrap: wrap; }
-
-    nav a {
-      padding: 7px 16px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      color: var(--slate-600);
-      transition: all 0.18s;
-      white-space: nowrap;
+    /* ── NAV — 토스 스타일: 이모지 없음, 심플 텍스트 ── */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex: 1;
+      margin-left: 36px;
     }
 
-    nav a:hover { background: var(--slate-100); color: var(--blue-600); }
-    nav a.active { background: var(--blue-50); color: var(--blue-700); }
+    nav a {
+      padding: 6px 14px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      color: var(--slate-600);
+      transition: color 0.15s;
+      white-space: nowrap;
+      letter-spacing: -0.2px;
+      border-radius: 0;
+    }
+
+    nav a:hover { color: var(--slate-950); background: none; }
+    nav a.active { color: var(--slate-950); font-weight: 700; }
+
+    /* ── 헤더 우측 CTA 영역 ── */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    /* 헤더 CTA 버튼 */
+    .btn-header {
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      background: var(--blue-600);
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+    }
+    .btn-header:hover { background: var(--blue-700); transform: translateY(-1px); }
+    .btn-header:active { transform: translateY(0); }
 
     /* ── HAMBURGER ── */
     .hamburger {
@@ -159,34 +197,53 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 6px;
+      padding: 8px;
       border-radius: 8px;
+      transition: background 0.15s;
     }
     .hamburger:hover { background: var(--slate-100); }
     .hamburger span {
-      display: block; width: 22px; height: 2px;
+      display: block; width: 20px; height: 1.5px;
       background: var(--slate-800); border-radius: 2px;
+      transition: all 0.2s;
     }
 
+    /* ── MOBILE NAV ── */
     .mobile-nav {
       display: none;
       flex-direction: column;
       background: var(--white);
-      border-top: 1px solid var(--slate-200);
-      padding: 10px 16px 14px;
-      gap: 2px;
+      border-top: 1px solid var(--slate-100);
+      padding: 8px 16px 16px;
+      gap: 0;
     }
     .mobile-nav.open { display: flex; }
     .mobile-nav a {
-      padding: 11px 16px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
+      padding: 13px 12px;
+      font-size: 15px;
+      font-weight: 500;
       text-decoration: none;
-      color: var(--slate-600);
-      transition: all 0.18s;
+      color: var(--slate-800);
+      border-bottom: 1px solid var(--slate-100);
+      letter-spacing: -0.2px;
+      transition: color 0.15s;
     }
-    .mobile-nav a:hover { background: var(--slate-100); color: var(--blue-600); }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: var(--blue-600); }
+
+    /* 모바일 CTA */
+    .mobile-nav .mobile-cta {
+      margin-top: 12px;
+      padding: 14px 12px;
+      text-align: center;
+      background: var(--blue-600);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 700;
+      border-bottom: none;
+      font-size: 15px;
+    }
+    .mobile-nav .mobile-cta:hover { background: var(--blue-700); color: #fff; }
 
     /* ============================================================
        HERO — 토스 화이트 (toss.im 스타일 — 화이트 배경, 다크 타이포)
@@ -843,8 +900,10 @@
     ============================================================ */
     @media (max-width: 768px) {
       nav { display: none; }
+      .btn-header { display: none; }
       .hamburger { display: flex; }
-      .header-inner { padding: 0 20px; }
+      .header-inner { padding: 0 20px; gap: 0; }
+      .header-right { gap: 0; }
       .hero { padding: 72px 20px 88px; }
       .fomo-card { min-width: 0; width: 100%; max-width: 400px; padding: 22px 24px 20px; border-radius: 18px; }
       .fomo-bignum { font-size: clamp(40px, 10vw, 56px); letter-spacing: -1.5px; }
@@ -1311,28 +1370,35 @@
 <body>
 
 <!-- ===== HEADER ===== -->
-<header>
+<header id="site-header">
   <div class="header-inner">
     <a href="#" class="logo">
       <span class="logo-oh">oh<span class="logo-exclaim">!</span></span>
       <span class="logo-my">my</span>
       <span class="logo-don">돈</span>
     </a>
+
     <nav>
-      <a href="#crypto" class="active">💰 코인 이벤트</a>
-      <a href="#sns">🎵 SNS</a>
-      <a href="#apptech">📱 앱테크</a>
-      <a href="#etc">🎁 기타혜택</a>
+      <a href="#crypto" class="active">코인 이벤트</a>
+      <a href="#sns">SNS</a>
+      <a href="#apptech">앱테크</a>
+      <a href="#etc">기타혜택</a>
     </nav>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
+
+    <div class="header-right">
+      <a href="#crypto" class="btn-header">혜택 받기</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
+
   <div class="mobile-nav" id="mobileNav">
-    <a href="#crypto" onclick="toggleMenu()">💰 코인 이벤트</a>
-    <a href="#sns" onclick="toggleMenu()">🎵 SNS 이벤트</a>
-    <a href="#apptech" onclick="toggleMenu()">📱 앱테크 부업</a>
-    <a href="#etc" onclick="toggleMenu()">🎁 기타 혜택</a>
+    <a href="#crypto" onclick="toggleMenu()">코인 이벤트</a>
+    <a href="#sns" onclick="toggleMenu()">SNS 이벤트</a>
+    <a href="#apptech" onclick="toggleMenu()">앱테크 부업</a>
+    <a href="#etc" onclick="toggleMenu()">기타 혜택</a>
+    <a href="#crypto" class="mobile-cta" onclick="toggleMenu()">혜택 받기 →</a>
   </div>
 </header>
 
@@ -1939,6 +2005,15 @@
 </div>
 
 <script>
+  // 헤더 스크롤 감지 — 토스처럼 스크롤 시 그림자 표시
+  (function() {
+    var hdr = document.getElementById('site-header');
+    function onScroll() {
+      hdr.classList.toggle('scrolled', window.scrollY > 10);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
   function toggleMenu() {
     document.getElementById('mobileNav').classList.toggle('open');
   }
