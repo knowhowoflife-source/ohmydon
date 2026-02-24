@@ -89,39 +89,51 @@
       height: 64px;
     }
 
-    /* ── LOGO (Toss 스타일) ── */
+    /* ── LOGO ── */
     .logo {
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0;
-      letter-spacing: -1px;
+      gap: 2px;
       line-height: 1;
     }
 
+    /* "oh" — 다크, 이탤릭 */
     .logo-oh {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 900;
       font-style: italic;
+      color: var(--slate-950);
+      letter-spacing: -1px;
+    }
+
+    /* "!" — 토스 블루 */
+    .logo-exclaim {
       color: var(--blue-600);
+      font-style: italic;
     }
 
+    /* "my" — 라이트, 그레이 */
     .logo-my {
-      font-size: 20px;
-      font-weight: 300;
-      color: var(--slate-950);
-      letter-spacing: -0.5px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--slate-400);
+      letter-spacing: 0.2px;
+      align-self: flex-end;
+      padding-bottom: 2px;
+      margin-left: 1px;
     }
 
+    /* "돈" — 블루 뱃지, 더 정교하게 */
     .logo-don {
-      font-size: 20px;
-      font-weight: 900;
-      color: var(--slate-950);
+      font-size: 19px;
+      font-weight: 800;
       background: var(--blue-600);
       color: #fff;
-      padding: 1px 7px 2px;
-      border-radius: 6px;
-      margin-left: 3px;
+      padding: 2px 8px 3px;
+      border-radius: 8px;
+      margin-left: 4px;
+      letter-spacing: -0.3px;
     }
 
     /* ── NAV ── */
@@ -177,188 +189,204 @@
     .mobile-nav a:hover { background: var(--slate-100); color: var(--blue-600); }
 
     /* ============================================================
-       HERO — 토스 다크 네이비 (toss.im 실제 색상 참고)
+       HERO — 토스 화이트 (toss.im 스타일 — 화이트 배경, 다크 타이포)
     ============================================================ */
     .hero {
-      background:
-        radial-gradient(ellipse 70% 55% at 50% 0%, rgba(49,130,246,0.22) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 35% at 80% 85%, rgba(13,36,97,0.6) 0%, transparent 55%),
-        linear-gradient(170deg, #040E22 0%, #061838 45%, #0D2461 100%);
-      color: #fff;
+      background: #fff;
+      color: var(--slate-950);
       text-align: center;
-      padding: 88px 24px 108px;
+      padding: 96px 24px 112px;
       position: relative;
       overflow: hidden;
     }
 
-    /* 미묘한 원형 노이즈 패턴 */
+    /* 아주 미묘한 블루 글로우 — 배경감만 줌 */
     .hero::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 28px 28px;
-      pointer-events: none;
-    }
-
-    /* 하단 화이트 페이드 */
-    .hero-fade {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 80px;
-      background: linear-gradient(to bottom, transparent, var(--white));
+      width: 900px; height: 600px;
+      background: radial-gradient(ellipse, rgba(49,130,246,0.07) 0%, transparent 70%);
+      top: -160px; left: 50%;
+      transform: translateX(-50%);
       pointer-events: none;
     }
 
     .hero-inner { position: relative; z-index: 1; }
 
+    /* 헤드라인 */
     .hero h1 {
       font-family: 'Pretendard', sans-serif;
-      font-size: clamp(30px, 5vw, 56px);
+      font-size: clamp(36px, 6vw, 68px);
       font-weight: 900;
-      line-height: 1.22;
-      letter-spacing: -1.5px;
+      line-height: 1.18;
+      letter-spacing: -2px;
       margin-bottom: 20px;
+      color: var(--slate-950);
     }
 
     .hero h1 .line-1 {
       display: block;
-      color: rgba(255,255,255,0.6);
+      color: var(--slate-600);
+      font-weight: 700;
     }
 
     .hero h1 .line-2 {
       display: block;
-      color: #fff;
+      color: var(--slate-950);
     }
 
-    /* "이번엔" 강조 */
+    /* "이번엔" — 토스 블루, 밑줄 없이 색만 */
     .hero h1 .hl {
-      color: #3182f6;
+      color: var(--blue-600);
     }
 
     .hero-sub {
-      font-size: 16px;
-      color: rgba(255,255,255,0.45);
-      margin-bottom: 44px;
-      letter-spacing: -0.2px;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--slate-400);
+      margin-bottom: 56px;
+      letter-spacing: -0.3px;
       word-break: keep-all;
     }
 
-    /* ── FOMO 카운터 — 토스 금융 카드 스타일 ── */
-    .fomo-wrap {
+    /* ============================================================
+       FOMO 카운터 — 증권/금융 앱 카드 스타일
+    ============================================================ */
+    .fomo-card {
       display: inline-block;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 20px;
-      padding: 30px 44px 26px;
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      text-align: center;
+      background: var(--white);
+      border: 1.5px solid var(--slate-200);
+      border-radius: 24px;
+      padding: 28px 40px 26px;
+      box-shadow:
+        0 0 0 1px rgba(49,130,246,0.04),
+        0 8px 32px rgba(25,31,40,0.08),
+        0 2px 8px rgba(25,31,40,0.04);
+      text-align: left;
       min-width: 360px;
+    }
+
+    /* 상단: 날짜 + LIVE 뱃지 */
+    .fomo-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .fomo-date-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--slate-600);
+      letter-spacing: -0.1px;
     }
 
     .fomo-live-badge {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(74,222,128,0.12);
-      border: 1px solid rgba(74,222,128,0.25);
-      border-radius: 20px;
-      padding: 4px 12px;
+      gap: 5px;
       font-size: 11px;
       font-weight: 700;
-      color: #4ade80;
-      margin-bottom: 20px;
-      letter-spacing: 1.2px;
+      color: #16c784;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
     }
 
     .fomo-dot {
       width: 6px; height: 6px;
-      background: #4ade80;
+      background: #16c784;
       border-radius: 50%;
-      animation: blink 1.4s infinite;
+      animation: blink 1.6s ease-in-out infinite;
       flex-shrink: 0;
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
-      50%       { opacity: 0.5; box-shadow: 0 0 0 4px rgba(74,222,128,0); }
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.35; transform: scale(0.7); }
     }
 
+    /* 메인 금액 — 증권 앱 숫자 스타일 */
     .fomo-amount-row {
       display: flex;
       align-items: baseline;
-      justify-content: center;
       gap: 6px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
-    /* 금융 앱 숫자 스타일 — tabular-nums */
-    .fomo-amount {
+    .fomo-bignum {
       font-family: 'Plus Jakarta Sans', -apple-system, 'SF Pro Display', sans-serif;
-      font-size: clamp(36px, 6vw, 52px);
+      font-size: clamp(44px, 7.5vw, 72px);
       font-weight: 800;
-      color: #fff;
-      letter-spacing: -1.5px;
+      color: var(--slate-950);
+      letter-spacing: -2.5px;
       font-variant-numeric: tabular-nums;
       font-feature-settings: "tnum";
-      transition: color 0.25s;
       line-height: 1;
+      transition: color 0.2s;
     }
 
-    .fomo-amount.flash { color: #3182f6; }
+    .fomo-bignum.flash { color: var(--blue-600); }
 
-    .fomo-unit {
+    .fomo-man-unit {
       font-family: 'Pretendard', sans-serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.55);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--slate-600);
+      letter-spacing: -0.3px;
     }
 
-    .fomo-paid-label {
-      font-size: 13px;
-      color: rgba(255,255,255,0.38);
-      margin-bottom: 20px;
-      letter-spacing: -0.1px;
-    }
-
-    .fomo-divider {
-      width: 32px; height: 1px;
-      background: rgba(255,255,255,0.12);
-      margin: 0 auto 18px;
-    }
-
-    .fomo-participants {
+    /* 변동 표시 — 주식 앱 스타일 */
+    .fomo-change-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 18px;
       font-size: 14px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 6px;
+      font-weight: 700;
+      color: #16c784;
     }
 
-    .fomo-participants span {
+    .fomo-change-row .arrow { font-size: 11px; }
+
+    .fomo-change-sub {
+      font-weight: 400;
+      color: var(--slate-400);
+      font-size: 13px;
+    }
+
+    /* 구분선 */
+    .fomo-divider {
+      height: 1px;
+      background: var(--slate-100);
+      margin-bottom: 14px;
+    }
+
+    /* 하단: 참여자 수 */
+    .fomo-participants-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--slate-600);
+      font-weight: 500;
+    }
+
+    .fomo-count-num {
       font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--slate-950);
       font-variant-numeric: tabular-nums;
       font-feature-settings: "tnum";
-      color: #fff;
-      font-weight: 800;
-      font-size: 17px;
     }
 
-    .fomo-cta-text {
-      font-size: 12px;
-      color: rgba(255,255,255,0.28);
-      font-weight: 500;
-      letter-spacing: -0.1px;
-    }
-
-    @keyframes countFlash {
+    @keyframes numUp {
       0%   { transform: translateY(0);    opacity: 1; }
-      30%  { transform: translateY(-6px); opacity: 0.4; }
-      70%  { transform: translateY(2px);  opacity: 0.9; }
+      25%  { transform: translateY(-8px); opacity: 0; }
+      26%  { transform: translateY(8px);  opacity: 0; }
       100% { transform: translateY(0);    opacity: 1; }
     }
-    .count-anim { animation: countFlash 0.4s cubic-bezier(0.4,0,0.2,1); }
+    .count-anim { animation: numUp 0.5s cubic-bezier(0.4,0,0.2,1); }
 
     /* ============================================================
        MAIN
@@ -817,9 +845,9 @@
       nav { display: none; }
       .hamburger { display: flex; }
       .header-inner { padding: 0 20px; }
-      .hero { padding: 72px 20px 96px; }
-      .fomo-wrap { min-width: 0; width: 100%; max-width: 380px; padding: 24px 28px 22px; border-radius: 16px; }
-      .fomo-amount { font-size: clamp(32px, 8vw, 44px); }
+      .hero { padding: 72px 20px 88px; }
+      .fomo-card { min-width: 0; width: 100%; max-width: 400px; padding: 22px 24px 20px; border-radius: 18px; }
+      .fomo-bignum { font-size: clamp(40px, 10vw, 56px); letter-spacing: -1.5px; }
       main { padding: 48px 20px 80px; }
       .how-section { padding: 32px 24px; }
       .modal-header { padding: 20px 20px 0; }
@@ -1286,7 +1314,7 @@
 <header>
   <div class="header-inner">
     <a href="#" class="logo">
-      <span class="logo-oh">oh!</span>
+      <span class="logo-oh">oh<span class="logo-exclaim">!</span></span>
       <span class="logo-my">my</span>
       <span class="logo-don">돈</span>
     </a>
@@ -1318,24 +1346,35 @@
 
     <p class="hero-sub">회원가입 하나로 현금처럼 쓸 수 있는 돈이 쌓입니다</p>
 
-    <div class="fomo-wrap">
-      <div class="fomo-live-badge">
-        <span class="fomo-dot"></span>
-        LIVE
+    <!-- 증권 앱 스타일 금액 카드 -->
+    <div class="fomo-card">
+      <div class="fomo-header-row">
+        <span class="fomo-date-label" id="fomo-date-label">02.25 기준 오늘 누적 지급액</span>
+        <span class="fomo-live-badge">
+          <span class="fomo-dot"></span>
+          LIVE
+        </span>
       </div>
+
       <div class="fomo-amount-row">
-        <span class="fomo-amount" id="fomo-amount">15,421,000</span>
-        <span class="fomo-unit">원</span>
+        <span class="fomo-bignum" id="fomo-bignum">1,547</span>
+        <span class="fomo-man-unit">만원</span>
       </div>
-      <div class="fomo-paid-label">현재까지 지급 완료 — 여러분도 얼른 찾아가세요</div>
+
+      <div class="fomo-change-row">
+        <span class="arrow">▲</span>
+        <span id="fomo-change-amount">+7만원</span>
+        <span class="fomo-change-sub">방금 지급됨</span>
+      </div>
+
       <div class="fomo-divider"></div>
-      <div class="fomo-participants">
-        <span id="fomo-count">220</span>명이 이미 받아갔어요
+
+      <div class="fomo-participants-row">
+        <span class="fomo-count-num" id="fomo-count">221</span>
+        <span>명이 이미 받아갔어요 — 여러분도 얼른 찾아가세요</span>
       </div>
-      <div class="fomo-cta-text">10초마다 새로운 참여자가 생기고 있어요 🔥</div>
     </div>
   </div>
-  <div class="hero-fade"></div>
 </section>
 
 <!-- ===== MAIN ===== -->
@@ -1923,38 +1962,58 @@
     });
   });
 
-  // ── FOMO 카운터 ──
+  // ── FOMO 카운터 — 증권 앱 스타일 ──
   (function() {
-    var amount = 15421000;
-    var count  = 220;
+    var amountWon = 15470000;   // 원 단위 원본값
+    var count     = 221;
+    var incList   = [30000, 70000];  // 3만 / 7만 번갈아
+    var incIdx    = 0;
 
-    function fmt(n) {
-      return n.toLocaleString('ko-KR');
+    // 서울 시간 (KST = UTC+9) 기준 MM.DD 포맷
+    function getKSTDateStr() {
+      var now  = new Date();
+      var kst  = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+      var m = String(kst.getUTCMonth() + 1).padStart(2, '0');
+      var d = String(kst.getUTCDate()).padStart(2, '0');
+      return m + '.' + d;
     }
+
+    // 만원 단위로 변환, 천 단위 쉼표: 15470000 → "1,547"
+    function toMan(won) {
+      return Math.floor(won / 10000).toLocaleString('ko-KR');
+    }
+
+    // 초기 날짜 세팅
+    var dateEl = document.getElementById('fomo-date-label');
+    if (dateEl) dateEl.textContent = getKSTDateStr() + ' 기준 오늘 누적 지급액';
+
+    // 초기 금액 세팅
+    var bigEl  = document.getElementById('fomo-bignum');
+    var cntEl  = document.getElementById('fomo-count');
+    var chgEl  = document.getElementById('fomo-change-amount');
+    if (bigEl) bigEl.textContent = toMan(amountWon);
+    if (cntEl) cntEl.textContent = count.toLocaleString('ko-KR');
+    if (chgEl) chgEl.textContent = '+7만원';
 
     function updateFomo() {
-      amount += 70000;
-      count  += 1;
+      var inc = incList[incIdx % 2];
+      incIdx++;
+      amountWon += inc;
+      count     += 1;
 
-      var amEl = document.getElementById('fomo-amount');
-      var cnEl = document.getElementById('fomo-count');
-
-      if (amEl) {
-        amEl.textContent = fmt(amount);
-        amEl.classList.remove('count-anim');
-        // reflow trick to restart animation
-        void amEl.offsetWidth;
-        amEl.classList.add('count-anim');
-        // flash colour
-        amEl.classList.add('flash');
-        setTimeout(function() { amEl.classList.remove('flash'); }, 800);
+      if (bigEl) {
+        bigEl.classList.remove('count-anim', 'flash');
+        void bigEl.offsetWidth;  // reflow — 애니메이션 재시작
+        bigEl.textContent = toMan(amountWon);
+        bigEl.classList.add('count-anim', 'flash');
+        setTimeout(function() { bigEl.classList.remove('flash'); }, 600);
       }
-      if (cnEl) {
-        cnEl.textContent = fmt(count);
-      }
+      if (cntEl) cntEl.textContent = count.toLocaleString('ko-KR');
+      if (chgEl) chgEl.textContent = '+' + (inc / 10000) + '만원';
     }
 
-    setInterval(updateFomo, 10000);
+    // 5초마다 번갈아 업데이트 (실시간 느낌)
+    setInterval(updateFomo, 5000);
   })();
 
   // 이미지 토글 (간소화 보기)
