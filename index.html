@@ -267,9 +267,9 @@
       font-family: 'Pretendard', sans-serif;
       font-size: clamp(36px, 6vw, 68px);
       font-weight: 900;
-      line-height: 1.18;
+      line-height: 1.22;
       letter-spacing: -2px;
-      margin-bottom: 20px;
+      margin-bottom: 28px;
       color: var(--slate-950);
     }
 
@@ -293,7 +293,8 @@
       font-size: 17px;
       font-weight: 500;
       color: var(--slate-400);
-      margin-bottom: 56px;
+      line-height: 1.7;
+      margin-bottom: 12px;
       letter-spacing: -0.3px;
       word-break: keep-all;
     }
@@ -443,7 +444,7 @@
     main {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 64px 28px 100px;
+      padding: 80px 28px 120px;
     }
 
     /* ── SECTION TITLE ── */
@@ -453,7 +454,7 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       color: var(--blue-600);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .section-heading {
@@ -461,7 +462,8 @@
       font-weight: 800;
       color: var(--slate-950);
       letter-spacing: -0.5px;
-      margin-bottom: 28px;
+      line-height: 1.35;
+      margin-bottom: 40px;
     }
 
     /* ============================================================
@@ -471,8 +473,8 @@
       background: var(--slate-50);
       border: 1px solid var(--slate-200);
       border-radius: 24px;
-      padding: 44px 40px;
-      margin-bottom: 72px;
+      padding: 48px 40px;
+      margin-bottom: 88px;
       position: relative;
       overflow: hidden;
     }
@@ -490,8 +492,8 @@
     .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 28px;
-      margin-top: 28px;
+      gap: 36px;
+      margin-top: 36px;
     }
 
     .step { text-align: center; }
@@ -507,7 +509,7 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 18px;
       font-weight: 900;
-      margin: 0 auto 14px;
+      margin: 0 auto 18px;
       box-shadow: var(--shadow-blue);
     }
 
@@ -515,13 +517,13 @@
       font-size: 15px;
       font-weight: 700;
       color: var(--slate-800);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .step p {
       font-size: 13px;
       color: var(--slate-400);
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     /* ============================================================
@@ -530,8 +532,8 @@
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-      margin-bottom: 72px;
+      gap: 28px;
+      margin-bottom: 88px;
     }
 
     .card {
@@ -558,22 +560,23 @@
     }
 
     .card-header {
-      padding: 24px 24px 14px;
+      padding: 24px 24px 16px;
       display: flex;
       align-items: flex-start;
       gap: 16px;
     }
 
     .card-icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      background: var(--blue-50);
-      border: 1px solid var(--blue-100);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      overflow: hidden;
       flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(25,31,40,0.12);
+    }
+    .card-icon img {
+      width: 56px; height: 56px;
+      display: block;
+      object-fit: cover;
     }
 
     .card-meta { flex: 1; }
@@ -603,20 +606,20 @@
       margin-top: 2px;
     }
 
-    .card-body { padding: 0 24px 16px; }
+    .card-body { padding: 0 24px 20px; }
 
     .card-desc {
       font-size: 14px;
       color: var(--slate-600);
-      line-height: 1.75;
-      margin-bottom: 14px;
+      line-height: 1.85;
+      margin-bottom: 16px;
     }
 
     .card-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .tag {
@@ -1357,6 +1360,409 @@
     /* ── 섹션 블록 간격 ── */
     .evt-section { margin-bottom: 0; }
     .evt-section + .evt-section { margin-top: 56px; }
+
+    /* ============================================================
+       RELATED ARTICLES ACCORDION
+    ============================================================ */
+    .related-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1.5px solid var(--slate-200);
+    }
+    .related-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue-600);
+      margin-bottom: 12px;
+    }
+    .related-item {
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .related-q {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      background: var(--white);
+      border: none;
+      width: 100%;
+      text-align: left;
+      transition: background 0.18s;
+    }
+    .related-q:hover { background: var(--slate-50); }
+    .related-q.open { background: var(--blue-50); border-bottom: 1px solid var(--blue-100); }
+    .related-icon { font-size: 20px; flex-shrink: 0; }
+    .related-meta { flex: 1; }
+    .related-meta-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--slate-800);
+      letter-spacing: -0.2px;
+      line-height: 1.4;
+    }
+    .related-q.open .related-meta-title { color: var(--blue-700); }
+    .related-meta-sub {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--slate-400);
+      margin-top: 3px;
+    }
+    .related-arr {
+      color: var(--slate-400);
+      font-size: 12px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      display: inline-block;
+    }
+    .related-q.open .related-arr { transform: rotate(180deg); }
+    .related-body {
+      display: none;
+      padding: 20px 20px 24px;
+      background: var(--slate-50);
+    }
+    .related-body.open { display: block; }
+    .related-body h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--slate-800);
+      margin: 18px 0 8px;
+      letter-spacing: -0.2px;
+    }
+    .related-body h4:first-child { margin-top: 0; }
+    .related-body p {
+      font-size: 13px;
+      color: var(--slate-600);
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+    .related-body ul, .related-body ol {
+      padding-left: 18px;
+      margin: 6px 0 12px;
+    }
+    .related-body li {
+      font-size: 13px;
+      color: var(--slate-600);
+      line-height: 1.8;
+      margin-bottom: 4px;
+    }
+    .ra-tip {
+      background: var(--blue-50);
+      border-left: 3px solid var(--blue-400);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #1E40AF;
+      line-height: 1.65;
+      margin: 12px 0;
+    }
+    .ra-warn {
+      background: #FFF7ED;
+      border-left: 3px solid #F97316;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #92400E;
+      line-height: 1.65;
+      margin: 12px 0;
+    }
+    .ra-ok { color: #16A34A; font-weight: 700; }
+    .ra-no { color: #DC2626; font-weight: 700; }
+
+    /* ============================================================
+       AUTH — 로그인 / 회원가입
+    ============================================================ */
+    .btn-header-ghost {
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--slate-600);
+      text-decoration: none;
+      transition: color 0.15s;
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+    }
+    .btn-header-ghost:hover { color: var(--slate-950); }
+
+    /* 유저 아바타 */
+    .user-menu { position: relative; display: flex; align-items: center; }
+    .user-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: var(--blue-600);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      user-select: none;
+      letter-spacing: 0;
+    }
+    .user-avatar:hover { opacity: 0.85; }
+
+    /* 드롭다운 */
+    .user-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: #fff;
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      box-shadow: var(--shadow-lg);
+      min-width: 200px;
+      padding: 8px 0;
+      z-index: 200;
+    }
+    .user-dropdown.open { display: block; }
+    .user-dropdown-name {
+      padding: 10px 16px 2px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--slate-950);
+      letter-spacing: -0.3px;
+    }
+    .user-dropdown-email {
+      padding: 0 16px 10px;
+      font-size: 12px;
+      color: var(--slate-400);
+    }
+    .user-dropdown hr { border: none; border-top: 1px solid var(--slate-100); margin: 0; }
+    .user-dropdown-item {
+      display: block;
+      width: 100%;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--slate-700, #374151);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.12s;
+      letter-spacing: -0.2px;
+    }
+    .user-dropdown-item:hover { background: var(--slate-50); }
+    .user-dropdown-item.danger { color: #DC2626; }
+
+    /* ── 인증 모달 오버레이 ── */
+    .auth-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(25,31,40,0.45);
+      backdrop-filter: blur(4px);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .auth-overlay.open { display: flex; }
+
+    .auth-modal {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(25,31,40,0.18);
+      width: 100%;
+      max-width: 420px;
+      overflow: hidden;
+      animation: authIn 0.2s ease;
+    }
+    @keyframes authIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .auth-header {
+      padding: 28px 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .auth-logo {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--slate-950);
+      letter-spacing: -0.5px;
+    }
+    .auth-logo span { color: var(--blue-600); }
+    .auth-close {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      border: none;
+      background: var(--slate-100);
+      cursor: pointer;
+      font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--slate-600);
+      transition: background 0.12s;
+    }
+    .auth-close:hover { background: var(--slate-200); }
+
+    /* 탭 */
+    .auth-tabs {
+      display: flex;
+      margin: 20px 28px 0;
+      background: var(--slate-100);
+      border-radius: 10px;
+      padding: 3px;
+      gap: 2px;
+    }
+    .auth-tab {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      background: transparent;
+      color: var(--slate-500, #6b7280);
+      transition: all 0.15s;
+      letter-spacing: -0.2px;
+    }
+    .auth-tab.active {
+      background: #fff;
+      color: var(--slate-950);
+      box-shadow: 0 1px 4px rgba(25,31,40,0.10);
+    }
+
+    /* 폼 */
+    .auth-body { padding: 20px 28px 28px; }
+    .auth-panel { display: none; }
+    .auth-panel.active { display: block; }
+
+    .auth-tagline {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--slate-950);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+    .auth-sub {
+      font-size: 13px;
+      color: var(--slate-500, #6b7280);
+      margin-bottom: 20px;
+      letter-spacing: -0.2px;
+    }
+
+    .auth-field { margin-bottom: 12px; }
+    .auth-field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-700, #374151);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+    .auth-field input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--slate-200);
+      border-radius: 10px;
+      font-size: 15px;
+      color: var(--slate-950);
+      background: var(--slate-50);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      font-family: 'Pretendard', sans-serif;
+      letter-spacing: -0.2px;
+    }
+    .auth-field input:focus {
+      border-color: var(--blue-600);
+      box-shadow: 0 0 0 3px rgba(49,130,246,0.12);
+      background: #fff;
+    }
+    .auth-field input::placeholder { color: var(--slate-400); }
+
+    /* 구글 버튼 */
+    .btn-google {
+      width: 100%;
+      padding: 12px;
+      border: 1.5px solid var(--slate-200);
+      border-radius: 10px;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--slate-800);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background 0.12s, border-color 0.12s;
+      font-family: 'Pretendard', sans-serif;
+      letter-spacing: -0.2px;
+      margin-bottom: 16px;
+    }
+    .btn-google:hover { background: var(--slate-50); border-color: var(--slate-300); }
+    .btn-google svg { flex-shrink: 0; }
+
+    /* 구분선 */
+    .auth-divider {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: var(--slate-400);
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: ''; flex: 1;
+      height: 1px; background: var(--slate-200);
+    }
+
+    /* 제출 버튼 */
+    .btn-auth-submit {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: var(--blue-600);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      font-family: 'Pretendard', sans-serif;
+      letter-spacing: -0.3px;
+      margin-top: 4px;
+    }
+    .btn-auth-submit:hover { background: var(--blue-700); }
+    .btn-auth-submit:active { transform: scale(0.99); }
+    .btn-auth-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+    /* 에러/성공 메시지 */
+    .auth-msg {
+      font-size: 13px;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 12px;
+      display: none;
+      letter-spacing: -0.2px;
+    }
+    .auth-msg.error { background: #FEF2F2; color: #DC2626; display: block; }
+    .auth-msg.success { background: #F0FDF4; color: #16A34A; display: block; }
+
+    .auth-footer-text {
+      text-align: center;
+      font-size: 12px;
+      color: var(--slate-400);
+      margin-top: 16px;
+      letter-spacing: -0.1px;
+      line-height: 1.6;
+    }
+
+    /* 모바일 */
+    @media (max-width: 480px) {
+      .auth-modal { border-radius: 20px; }
+      .auth-header, .auth-body { padding-left: 20px; padding-right: 20px; }
+      .auth-tabs { margin-left: 20px; margin-right: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -1374,7 +1780,22 @@
     </nav>
 
     <div class="header-right">
-      <a href="#events" class="btn-header">혜택 받기</a>
+      <a href="#events" class="btn-header-ghost">혜택 받기</a>
+
+      <!-- 비로그인 상태 -->
+      <button class="btn-header" id="header-login-btn" onclick="openAuthModal('login')">로그인</button>
+
+      <!-- 로그인 상태 (기본 숨김) -->
+      <div class="user-menu" id="user-menu" style="display:none">
+        <div class="user-avatar" id="user-avatar" onclick="toggleUserDropdown()">U</div>
+        <div class="user-dropdown" id="user-dropdown">
+          <div class="user-dropdown-name" id="user-display-name">사용자</div>
+          <div class="user-dropdown-email" id="user-display-email"></div>
+          <hr>
+          <button class="user-dropdown-item danger" onclick="signOutUser()">로그아웃</button>
+        </div>
+      </div>
+
       <div class="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
@@ -1395,7 +1816,9 @@
       <span class="line-2">돈이 <span class="hl">들어왔어요</span></span>
     </h1>
 
-    <p class="hero-sub">빗썸·코인원·틱톡 — 직접 받아보고 검증한 대기업 가입 혜택만 모았습니다</p>
+    <p class="hero-sub">빗썸·틱톡 Lite·코빗·코인원 — 직접 받아보고 검증한 대기업 가입 혜택만 모았습니다</p>
+
+    <p style="font-size:13px;color:var(--blue-600);font-weight:700;margin-top:8px;margin-bottom:48px;letter-spacing:-0.2px;">⏱ 1시간 투자해서 17.5만원 가져가세요!</p>
 
     <!-- 증권 앱 스타일 금액 카드 -->
     <div class="fomo-card">
@@ -1464,7 +1887,7 @@
       <div class="card fade-up">
         <div class="card-bar"></div>
         <div class="card-header">
-          <div class="card-icon">🏦</div>
+          <div class="card-icon"><img src="images/icon-bithumb.webp" alt="빗썸"></div>
           <div class="card-meta">
             <div class="card-label">가상자산 거래소</div>
             <div class="card-title">빗썸</div>
@@ -1487,18 +1910,41 @@
       <div class="card fade-up">
         <div class="card-bar"></div>
         <div class="card-header">
-          <div class="card-icon">🪙</div>
+          <div class="card-icon"><img src="images/icon-tiktok.webp" alt="틱톡 Lite"></div>
           <div class="card-meta">
-            <div class="card-label">가상자산 거래소</div>
-            <div class="card-title">코인원</div>
-            <div class="card-reward">최대 5.4만원</div>
+            <div class="card-label">글로벌 SNS 앱</div>
+            <div class="card-title">틱톡 Lite</div>
+            <div class="card-reward">최대 4만원</div>
           </div>
         </div>
         <div class="card-body">
-          <p class="card-desc">코인원 신규 가입 혜택. 초대코드 입력 후 간단한 조건 충족 시 54,000원 상당 혜택을 받을 수 있어요.</p>
+          <p class="card-desc">해당 달 신규가입이벤트 초대 링크로 가입하고 조건 충족시 총 100,000원 이상의 혜택을 받을 수 있어요.</p>
           <div class="card-tags">
             <span class="tag">✅ 검증완료</span>
-            <span class="tag">📱 앱설치</span>
+            <span class="tag">📱 신규설치</span>
+            <span class="tag">🎁 현금전환</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" onclick="openModal('tiktok')">혜택 받는 법 보기 →</button>
+        </div>
+      </div>
+
+      <div class="card fade-up">
+        <div class="card-bar"></div>
+        <div class="card-header">
+          <div class="card-icon"><img src="images/icon-coinone.webp" alt="코인원"></div>
+          <div class="card-meta">
+            <div class="card-label">가상자산 거래소</div>
+            <div class="card-title">코인원</div>
+            <div class="card-reward">총 5만원</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">코인원 신규 가입 이벤트. 초대 링크로 접속하면 코드 자동 입력! 조건 충족 시 50,000원 혜택을 받을 수 있어요.</p>
+          <div class="card-tags">
+            <span class="tag">✅ 검증완료</span>
+            <span class="tag">📱 앱·웹 가입</span>
             <span class="tag">⚡ 10분</span>
           </div>
         </div>
@@ -1510,7 +1956,7 @@
       <div class="card fade-up">
         <div class="card-bar"></div>
         <div class="card-header">
-          <div class="card-icon">💎</div>
+          <div class="card-icon"><img src="images/icon-korbit.webp" alt="코빗"></div>
           <div class="card-meta">
             <div class="card-label">가상자산 거래소</div>
             <div class="card-title">코빗</div>
@@ -1527,29 +1973,6 @@
         </div>
         <div class="card-footer">
           <button class="btn btn-primary" onclick="openModal('kobit')">혜택 받는 법 보기 →</button>
-        </div>
-      </div>
-
-      <div class="card fade-up">
-        <div class="card-bar"></div>
-        <div class="card-header">
-          <div class="card-icon">🎵</div>
-          <div class="card-meta">
-            <div class="card-label">글로벌 SNS 앱</div>
-            <div class="card-title">틱톡 라이트</div>
-            <div class="card-reward">최대 3만원</div>
-          </div>
-        </div>
-        <div class="card-body">
-          <p class="card-desc">틱톡 라이트 신규 설치 + 친구 초대 이벤트. 영상 보기만 해도 포인트가 쌓여요!</p>
-          <div class="card-tags">
-            <span class="tag">✅ 검증완료</span>
-            <span class="tag">📱 신규설치</span>
-            <span class="tag">🎁 현금전환</span>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-primary" onclick="openModal('tiktok')">혜택 받는 법 보기 →</button>
         </div>
       </div>
 
@@ -1572,6 +1995,97 @@
   본 사이트는 각 서비스의 공식 사이트가 아닙니다.<br>
   © 2025 oh! my 돈. All rights reserved.
 </footer>
+
+<!-- ===== AUTH MODAL ===== -->
+<div class="auth-overlay" id="auth-overlay" onclick="handleAuthOverlayClick(event)">
+  <div class="auth-modal" id="auth-modal">
+
+    <div class="auth-header">
+      <div class="auth-logo">oh!my<span>돈</span></div>
+      <button class="auth-close" onclick="closeAuthModal()">✕</button>
+    </div>
+
+    <!-- 탭 -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">로그인</button>
+      <button class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">회원가입</button>
+    </div>
+
+    <div class="auth-body">
+
+      <!-- ── 로그인 패널 ── -->
+      <div class="auth-panel active" id="panel-login">
+        <div class="auth-tagline">다시 오셨군요!</div>
+        <div class="auth-sub">로그인하고 이벤트 알림을 받아보세요</div>
+
+        <!-- 구글 로그인 -->
+        <button class="btn-google" onclick="signInWithGoogle()">
+          <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
+          Google로 계속하기
+        </button>
+
+        <div class="auth-divider">또는 이메일로</div>
+
+        <div class="auth-field">
+          <label>이메일</label>
+          <input type="email" id="login-email" placeholder="example@email.com" />
+        </div>
+        <div class="auth-field">
+          <label>비밀번호</label>
+          <input type="password" id="login-password" placeholder="비밀번호 입력" onkeydown="if(event.key==='Enter') submitLogin()" />
+        </div>
+
+        <div class="auth-msg" id="login-msg"></div>
+
+        <button class="btn-auth-submit" id="login-submit-btn" onclick="submitLogin()">로그인</button>
+
+        <div class="auth-footer-text">
+          계정이 없으신가요?
+          <a href="#" onclick="switchAuthTab('signup'); return false;" style="color:var(--blue-600);font-weight:600;text-decoration:none;">회원가입</a>
+        </div>
+      </div>
+
+      <!-- ── 회원가입 패널 ── -->
+      <div class="auth-panel" id="panel-signup">
+        <div class="auth-tagline">환영해요!</div>
+        <div class="auth-sub">가입하고 새 이벤트 알림을 제일 먼저 받으세요</div>
+
+        <!-- 구글 가입 -->
+        <button class="btn-google" onclick="signInWithGoogle()">
+          <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
+          Google로 시작하기
+        </button>
+
+        <div class="auth-divider">또는 이메일로</div>
+
+        <div class="auth-field">
+          <label>닉네임</label>
+          <input type="text" id="signup-name" placeholder="닉네임 (예: 돈버는사람)" />
+        </div>
+        <div class="auth-field">
+          <label>이메일</label>
+          <input type="email" id="signup-email" placeholder="example@email.com" />
+        </div>
+        <div class="auth-field">
+          <label>비밀번호</label>
+          <input type="password" id="signup-password" placeholder="8자 이상" onkeydown="if(event.key==='Enter') submitSignup()" />
+        </div>
+
+        <div class="auth-msg" id="signup-msg"></div>
+
+        <button class="btn-auth-submit" id="signup-submit-btn" onclick="submitSignup()">가입하기</button>
+
+        <div class="auth-footer-text">
+          이미 계정이 있으신가요?
+          <a href="#" onclick="switchAuthTab('login'); return false;" style="color:var(--blue-600);font-weight:600;text-decoration:none;">로그인</a>
+          <br><br>
+          가입 시 이벤트 정보 수신에 동의합니다.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- ===== MODALS ===== -->
 
@@ -1649,7 +2163,7 @@
             <div class="vis-warn">⚠ 신분증에 빛이 반사되거나 흔들리면 거절될 수 있어요. 평평한 곳에서 정면으로 촬영하세요.</div>
             <div class="step-img-wrap">
               <div class="vis-img-label">계좌 연동 방법 (화면 예시)</div>
-              <div class="img-box"><img src="images/STEP-KB-LINK.jpg" alt="계좌 연동 화면"></div>
+              <div class="img-box"><img src="images/STEP-KB-LINK.webp" alt="계좌 연동 화면"></div>
             </div>
           </div>
         </div>
@@ -1663,8 +2177,8 @@
             <div class="step-img-wrap">
               <div class="vis-img-label">초대코드 입력 위치 (화면 예시)</div>
               <div class="img-row">
-                <div class="img-box"><img src="images/STEP04_1.jpg" alt="초대코드 메뉴 위치"></div>
-                <div class="img-box"><img src="images/STEP04_2.jpg" alt="초대코드 입력 화면"></div>
+                <div class="img-box"><img src="images/STEP04_1.webp" alt="초대코드 메뉴 위치"></div>
+                <div class="img-box"><img src="images/STEP04_2.webp" alt="초대코드 입력 화면"></div>
               </div>
             </div>
           </div>
@@ -1690,9 +2204,9 @@
             <div class="step-img-wrap">
               <div class="vis-img-label">USDT 선택 → 매수 → 매도 (화면 예시)</div>
               <div class="img-row" style="grid-template-columns:1fr 1fr 1fr;">
-                <div class="img-box"><img src="images/STEP05_1.png" alt="USDT 선택"></div>
-                <div class="img-box"><img src="images/STEP05_2.png" alt="매수하기"></div>
-                <div class="img-box"><img src="images/STEP05_3.png" alt="매도하기"></div>
+                <div class="img-box"><img src="images/STEP05_1.webp" alt="USDT 선택"></div>
+                <div class="img-box"><img src="images/STEP05_2.webp" alt="매수하기"></div>
+                <div class="img-box"><img src="images/STEP05_3.webp" alt="매도하기"></div>
               </div>
             </div>
           </div>
@@ -1705,7 +2219,7 @@
         <div class="bm-complete-text">🎉 모든 조건 충족 시 <strong>약 7일 이내</strong> 70,000원 자동 지급됩니다!</div>
         <div class="step-img-wrap" style="margin-top:14px;">
           <div class="vis-img-label">7만원 수령 및 출금 방법</div>
-          <div class="img-box"><img src="images/STEP06.jpg" alt="7만원 수령 방법"></div>
+          <div class="img-box"><img src="images/STEP06.webp" alt="7만원 수령 방법"></div>
         </div>
       </div>
 
@@ -1738,91 +2252,858 @@
   </div>
 </div>
 
-<!-- 코인원 -->
+<!-- 코인원 — ADAPTIVE UI v2 -->
 <div class="modal-overlay" id="modal-coinone">
-  <div class="modal">
+  <div class="modal modal-wide">
     <div class="modal-topbar"></div>
-    <div class="modal-header">
-      <h2>🪙 코인원 신규가입 가이드</h2>
+
+    <!-- 고정 헤더 -->
+    <div class="bm-header">
+      <div class="bm-header-left">
+        <span class="bm-logo">🪙</span>
+        <div>
+          <div class="bm-title">코인원 신규가입 혜택</div>
+          <div class="bm-subtitle">2월 신규가입 이벤트 · 이벤트 확인일 2026.02.25 · 지급 완료</div>
+        </div>
+      </div>
       <button class="modal-close" onclick="closeModal('coinone')">✕</button>
     </div>
-    <div class="modal-body">
-      <div class="modal-reward">
-        <div class="amount">최대 54,000원</div>
-        <div class="label">신규 가입 혜택</div>
+
+    <!-- 스크롤 바디 -->
+    <div class="bm-body">
+
+      <!-- ① 초대코드 — 최상단 가장 크게 -->
+      <div class="bm-code-block">
+        <div class="bm-code-label">초대코드 먼저 복사하세요</div>
+        <div class="bm-code-row">
+          <div class="bm-code-value" id="coinone-code-main">YVO1IN3H</div>
+          <button class="bm-copy-btn" id="co-copy-btn" onclick="coCopy()">복사</button>
+        </div>
+        <div class="bm-code-sub">⚠ 가입 완료 후에는 코드 입력 불가 — 가입 시 반드시 입력!</div>
       </div>
-      <ol class="guide-steps">
-        <li><div class="step-content"><strong>코인원 앱 설치</strong><span>App Store 또는 Google Play에서 '코인원' 설치</span></div></li>
-        <li><div class="step-content"><strong>회원가입</strong><span>이메일 또는 휴대폰 번호로 가입</span></div></li>
-        <li><div class="step-content"><strong>본인인증(KYC)</strong><span>신분증 인증 완료</span></div></li>
-        <li><div class="step-content"><strong>추천코드 입력</strong><span>마이페이지 → 추천코드 입력란에 코드 입력</span></div></li>
-      </ol>
-      <div class="code-box">
-        <div class="code-label">추천코드</div>
-        <div class="code-value" id="coinone-code">입력예정</div>
-        <button class="copy-btn" onclick="copyCode('coinone-code')">📋 복사하기</button>
+
+      <!-- ② 혜택 금액 + CTA -->
+      <div class="bm-reward-row">
+        <div class="bm-reward-badge">🎁 총 50,000원 혜택</div>
+        <a href="https://coinone.co.kr/user/signup/terms?ref=YVO1IN3H" target="_blank" class="bm-cta-btn">
+          코인원 가입하기 →
+          <span style="font-size:11px;opacity:0.75;font-weight:500;display:block;margin-top:2px;">추천코드 자동 입력됨</span>
+        </a>
       </div>
-      <div class="modal-cta">
-        <a href="#" class="btn btn-primary">📲 코인원 앱 다운로드</a>
+
+      <!-- ③ 구분선 -->
+      <div class="bm-divider"><span>단계별 가이드</span></div>
+
+      <!-- ④ 가이드 헤더 + 간소화 토글 -->
+      <div class="bm-guide-header">
+        <span class="bm-guide-title">5단계로 완료돼요</span>
+        <button class="bm-simplify-btn" id="co-simplify-btn" onclick="coToggleImages()">📝 텍스트만 보기</button>
       </div>
-    </div>
+
+      <!-- ⑤ 스텝 타임라인 -->
+      <div class="bm-steps">
+
+        <div class="vis-step">
+          <div class="vis-dot">1</div>
+          <div class="vis-content">
+            <div class="vis-title">초대 링크로 가입 시작</div>
+            <div class="vis-desc">위 <strong>'코인원 가입하기'</strong> 버튼을 눌러 가입 페이지로 이동하세요. 추천코드가 자동으로 입력됩니다.</div>
+            <div class="vis-tip">💡 직접 앱에서 가입할 경우, 추천인 코드 입력란에 <strong>YVO1IN3H</strong>를 반드시 수동 입력하세요.<br>코드는 가입 완료 후 입력이 <strong>불가능</strong>합니다.</div>
+          </div>
+        </div>
+
+        <div class="vis-step">
+          <div class="vis-dot">2</div>
+          <div class="vis-content">
+            <div class="vis-title">이메일 가입 & 휴대폰 인증</div>
+            <div class="vis-desc">이메일로 회원가입 후 휴대폰 번호로 본인 확인을 완료하세요.</div>
+            <div class="vis-tip">💡 이메일 인증 링크가 스팸 폴더로 갈 수 있으니 확인해보세요.</div>
+          </div>
+        </div>
+
+        <div class="vis-step">
+          <div class="vis-dot">3</div>
+          <div class="vis-content">
+            <div class="vis-title">신분증 KYC 본인인증</div>
+            <div class="vis-desc">주민등록증 또는 운전면허증으로 신분증 촬영 인증을 진행합니다.</div>
+            <div class="vis-warn">⚠ 신분증에 빛 반사 없이 평평한 곳에서 정면 촬영하세요. 흔들리면 거절될 수 있어요.</div>
+          </div>
+        </div>
+
+        <div class="vis-step">
+          <div class="vis-dot vis-dot-warn">4</div>
+          <div class="vis-content">
+            <div class="vis-title">카카오뱅크 계좌 연결 <span class="badge-required">필수</span></div>
+            <div class="vis-desc">원화 입출금을 위해 <strong>카카오뱅크 계좌</strong>를 연결해야 합니다. 1원이 소액 입금되면 확인 후 인증 완료.</div>
+            <div class="vis-warn">⚠ 카카오뱅크 계좌 연결까지 완료해야 혜택이 지급됩니다! 혜택 지급일까지 계좌 연결을 유지하세요.</div>
+            <div class="vis-tip">💡 카카오뱅크 계좌가 없다면 카카오뱅크 앱을 먼저 설치하고 계좌를 만들어 두세요.</div>
+          </div>
+        </div>
+
+        <!-- 코드 리마인더 -->
+        <div style="margin: -8px 0 20px 48px;">
+          <div class="bm-code-block" style="padding:16px 18px;">
+            <div class="bm-code-label">추천코드 입력했나요? 한 번 더 확인!</div>
+            <div class="bm-code-row">
+              <div class="bm-code-value" id="coinone-code-mid" style="font-size:24px;letter-spacing:3px;">YVO1IN3H</div>
+              <button class="bm-copy-btn" id="co-copy-btn-mid" onclick="coCopyMid()">복사</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="vis-step vis-step-last">
+          <div class="vis-dot vis-dot-green">5</div>
+          <div class="vis-content">
+            <div class="vis-title">혜택 알림 수신 동의 & 첫 거래</div>
+            <div class="vis-desc">앱 설정에서 <strong>마케팅·혜택 알림 수신 동의</strong>를 켜주세요. 이후 소액 입금 후 아무 코인이나 <strong>1회 매수 → 매도</strong>하면 완료!</div>
+            <div class="vis-tip">💡 USDT(테더) 추천 — 1달러 고정 스테이블코인이라 가격 손실 걱정 없이 바로 매도해도 조건 충족!</div>
+            <div class="vis-warn">⚠ 혜택 지급일까지 알림 수신 동의를 유지해야 합니다. 중간에 해제하면 혜택이 지급되지 않아요.</div>
+          </div>
+        </div>
+
+      </div><!-- /bm-steps -->
+
+      <!-- 완료 + 수령 안내 -->
+      <div class="bm-complete">
+        <div class="bm-complete-text">🎉 모든 조건 충족 시 <strong>이벤트 종료 후 영업일 기준 약 5~7일 이내</strong> 50,000원 혜택이 코인원 계정으로 자동 지급됩니다!</div>
+      </div>
+
+      <!-- 주의사항 박스 -->
+      <div class="warn-box" style="margin-top:16px;">
+        <strong>⚠ 꼭 확인하세요</strong><br>
+        • <strong>생애 최초 코인원 가입자만</strong> 참여 가능합니다.<br>
+        • 이 이벤트와 코인원의 다른 신규가입 이벤트 혜택은 <strong>중복 지급되지 않습니다.</strong><br>
+        • 탈퇴 후 재가입, 통정거래 등 부정 참여 시 혜택이 환수될 수 있습니다.
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-wrap" style="margin-top:24px;">
+        <div class="faq-title">자주 묻는 질문</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 코인원이 믿을 만한 거래소인가요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">네. 코인원은 2014년부터 운영 중인 국내 주요 암호화폐 거래소로, 금융정보분석원(FIU) 등록 업체입니다. 수백만 명이 이용 중이에요.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 추천코드를 나중에 입력할 수 있나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">아니요. 추천코드는 회원가입 시 단 1회만 입력 가능하며, 가입 완료 후에는 입력이 불가합니다. 반드시 초대 링크를 통해 가입하거나, 가입 중 추천코드 입력란에 직접 입력해 주세요.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 카카오뱅크 계좌가 꼭 필요한가요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">네. 코인원은 카카오뱅크 계좌만 연결 가능합니다. 카카오뱅크 앱을 미리 설치하고 계좌를 만들어 두세요. 계좌 개설은 무료입니다.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 5만원은 언제, 어떻게 받나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">이벤트 종료 후 조건 확인 절차를 거쳐 영업일 기준 5~7일 이내에 코인원 계정으로 포인트 또는 코인 형태로 지급됩니다. 지급 후 원화로 전환해 출금할 수 있어요.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 투자 위험은 없나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">USDT(테더)는 1달러에 고정된 스테이블코인입니다. 소액 매수 후 즉시 매도하면 환율 차이로 수십 원 손실이 날 수 있지만, 5만원 혜택 대비 무시할 수준입니다.</div>
+        </div>
+      </div>
+
+    </div><!-- /bm-body -->
   </div>
 </div>
 
-<!-- 코빗 -->
+<!-- 코빗 — ADAPTIVE UI v2 -->
 <div class="modal-overlay" id="modal-kobit">
-  <div class="modal">
+  <div class="modal modal-wide">
     <div class="modal-topbar"></div>
-    <div class="modal-header">
-      <h2>💎 코빗 신규가입 가이드</h2>
+
+    <!-- 고정 헤더 -->
+    <div class="bm-header">
+      <div class="bm-header-left">
+        <span class="bm-logo">💎</span>
+        <div>
+          <div class="bm-title">코빗 신규가입 혜택</div>
+          <div class="bm-subtitle">이벤트 확인일 <span id="ko-confirm-date"></span> · 현재까지 지급 완료</div>
+        </div>
+      </div>
       <button class="modal-close" onclick="closeModal('kobit')">✕</button>
     </div>
-    <div class="modal-body">
-      <div class="modal-reward">
-        <div class="amount">최대 15,000원</div>
-        <div class="label">신규 가입 혜택</div>
+
+    <!-- 스크롤 바디 -->
+    <div class="bm-body">
+
+      <!-- ① 초대코드 — 최상단 가장 크게 -->
+      <div class="bm-code-block">
+        <div class="bm-code-label">초대코드 먼저 복사하세요 — 가입 후 입력 불가!</div>
+        <div class="bm-code-row">
+          <div class="bm-code-value" id="korbit-code">96346F</div>
+          <button class="bm-copy-btn" id="ko-copy-btn" onclick="koCopy()">복사</button>
+        </div>
+        <div class="bm-code-sub">⚠ 회원가입 화면에서만 입력 가능 — 가입 완료 후에는 절대 입력 불가</div>
+        <div style="margin-top:14px;">
+          <a href="https://marketing.korbit.co.kr/zqno9rn" target="_blank"
+             style="display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,0.18);border:2px solid rgba(255,255,255,0.4);color:#fff;padding:16px 24px;border-radius:14px;font-size:16px;font-weight:900;text-decoration:none;letter-spacing:-0.3px;transition:all 0.2s;">
+            💎 코빗 가입하고 15,000원 받기
+          </a>
+        </div>
       </div>
-      <ol class="guide-steps">
-        <li><div class="step-content"><strong>코빗 앱 설치</strong><span>App Store 또는 Google Play에서 '코빗' 설치</span></div></li>
-        <li><div class="step-content"><strong>회원가입 및 본인인증</strong><span>이메일 가입 → 신분증 KYC 인증</span></div></li>
-        <li><div class="step-content"><strong>초대코드 입력</strong><span>가입 과정 중 또는 마이페이지에서 코드 입력</span></div></li>
-        <li><div class="step-content"><strong>조건 충족 후 혜택 지급</strong><span>소액 거래 1회 완료 시 혜택 자동 지급</span></div></li>
-      </ol>
-      <div class="code-box">
-        <div class="code-label">초대코드</div>
-        <div class="code-value" id="kobit-code">입력예정</div>
-        <button class="copy-btn" onclick="copyCode('kobit-code')">📋 복사하기</button>
+
+      <!-- ② 마케팅 동의 경고 -->
+      <div style="background:linear-gradient(135deg,#FEF2F2,#FFF7ED);border:2px solid #F97316;border-radius:16px;padding:18px 20px;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span style="font-size:24px;line-height:1;">📢</span>
+          <span style="font-size:15px;font-weight:900;color:#9A3412;letter-spacing:-0.4px;">마케팅 동의 필수 — 안 하면 15,000원 못 받아요!</span>
+        </div>
+        <div style="font-size:13px;color:#92400E;line-height:1.8;font-weight:500;">
+          가입 시 <strong style="color:#7C2D12;background:#FED7AA;padding:1px 5px;border-radius:4px;">모든 마케팅 알림 동의</strong>(전화·이메일·SMS·앱푸시)를 꼭 선택하세요.<br>
+          <strong style="color:#9A3412;">리워드 수령 전 해제하면 취소될 수 있습니다!</strong>
+        </div>
       </div>
-      <div class="modal-cta">
-        <a href="#" class="btn btn-primary">📲 코빗 앱 다운로드</a>
+
+      <!-- ③ 혜택 + CTA -->
+      <div class="bm-reward-row">
+        <div class="bm-reward-badge">🎁 최대 15,000원 혜택</div>
+        <a href="https://marketing.korbit.co.kr/zqno9rn" target="_blank" class="bm-cta-btn">코빗 가입하기 →</a>
       </div>
-    </div>
-  </div>
+
+      <!-- ④ 구분선 -->
+      <div class="bm-divider"><span>단계별 가이드</span></div>
+
+      <!-- ⑤ 가이드 헤더 -->
+      <div class="bm-guide-header">
+        <span class="bm-guide-title">5단계로 완료돼요</span>
+        <button class="bm-simplify-btn" id="ko-simplify-btn" onclick="koToggleImages()">📝 텍스트만 보기</button>
+      </div>
+
+      <!-- ⑥ 스텝 타임라인 -->
+      <div class="bm-steps">
+
+        <!-- STEP 1 -->
+        <div class="vis-step">
+          <div class="vis-dot">1</div>
+          <div class="vis-content">
+            <div class="vis-title">코빗 앱 설치</div>
+            <div class="vis-desc">앱스토어(아이폰) 또는 플레이스토어(안드로이드)에서 <strong>코빗</strong>을 검색해 설치하세요.</div>
+            <div class="vis-tip">💡 앱 이름: "코빗 - 가상자산 거래소" · 개발사: Korbit Inc. 확인 후 설치</div>
+            <div class="step-img-wrap">
+              <div style="background:#f9fafb;border:1px solid #e5e8eb;border-radius:16px;padding:18px;margin-top:12px;max-width:340px;">
+                <div style="display:flex;align-items:center;gap:14px;">
+                  <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#1a56db,#0D2461);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;">💎</div>
+                  <div style="flex:1;">
+                    <div style="font-size:14px;font-weight:800;color:#191f28;">코빗 - 가상자산 거래소</div>
+                    <div style="font-size:12px;color:#6b7684;margin-top:2px;">Korbit Inc.</div>
+                    <div style="display:flex;align-items:center;gap:4px;margin-top:4px;">
+                      <span style="color:#fe9800;font-size:12px;">★★★★☆</span>
+                      <span style="font-size:11px;color:#8b95a1;">4.2</span>
+                    </div>
+                  </div>
+                  <a href="https://marketing.korbit.co.kr/zqno9rn" target="_blank" style="background:#1a56db;color:#fff;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:700;text-decoration:none;flex-shrink:0;">설치</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="vis-step">
+          <div class="vis-dot vis-dot-warn">2</div>
+          <div class="vis-content">
+            <div class="vis-title">회원가입 + 추천코드 입력 <span class="badge-required">필수·지금만 가능</span></div>
+            <div class="vis-desc">이메일 또는 휴대폰번호로 회원가입하세요. <strong>가입 화면에서 반드시 추천코드를 입력</strong>해야 합니다.</div>
+            <div class="vis-warn">⚠ 추천코드는 <strong>가입 완료 후 절대 입력 불가</strong>합니다. 이 단계에서만 가능!</div>
+            <div class="step-img-wrap">
+              <div style="background:#f9fafb;border:1px solid #e5e8eb;border-radius:16px;padding:18px;margin-top:12px;max-width:320px;">
+                <div style="text-align:center;margin-bottom:14px;">
+                  <div style="font-size:13px;font-weight:800;color:#191f28;">회원가입</div>
+                  <div style="font-size:11px;color:#8b95a1;margin-top:2px;">아래 항목 모두 완료 필수</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px;">
+                  <div style="background:#fff;border:2px solid #1a56db;border-radius:12px;padding:12px 14px;">
+                    <div style="font-size:10px;font-weight:700;color:#1a56db;margin-bottom:5px;">추천인 코드 입력란</div>
+                    <div style="display:flex;align-items:center;justify-content:space-between;">
+                      <span style="font-size:20px;font-weight:900;color:#191f28;letter-spacing:3px;">96346F</span>
+                      <span style="background:#1a56db;color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:8px;">✓ 입력</span>
+                    </div>
+                  </div>
+                  <div style="background:#FFF7ED;border:1.5px solid #FED7AA;border-radius:10px;padding:10px 13px;font-size:11px;color:#92400E;line-height:1.6;">
+                    <strong>📢 마케팅 알림 전체 동의</strong><br>전화 ✓ · 이메일 ✓ · SMS ✓ · 앱푸시 ✓
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="vis-step">
+          <div class="vis-dot vis-dot-warn">3</div>
+          <div class="vis-content">
+            <div class="vis-title">KYC 본인인증 + 신한은행 계좌 연동 <span class="badge-required">필수</span></div>
+            <div class="vis-desc">신분증으로 KYC(고객확인)를 완료하고, <strong>본인 명의 신한은행 계좌</strong>를 연동하세요. 두 가지 모두 완료해야 리워드가 지급돼요.</div>
+            <div class="vis-warn">⚠ 신한은행 계좌 없으면 리워드 수령 불가. 신한 SOL 앱에서 비대면 계좌 개설 가능(10분).</div>
+            <div class="step-img-wrap">
+              <div class="vis-img-label">KYC + 계좌 연동 화면 예시</div>
+              <div class="img-box" style="max-width:340px;margin:0 auto;">
+                <img src="images/korbit_step.webp" alt="코빗 KYC 및 계좌 연동 화면">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="vis-step">
+          <div class="vis-dot">4</div>
+          <div class="vis-content">
+            <div class="vis-title">1만원 이상 입금 후 코인 매수</div>
+            <div class="vis-desc">연동된 신한은행 계좌에서 코빗으로 <strong>1만원 이상 입금</strong>하고, 코인을 <strong>1만원 이상 매수</strong>하면 웰컴 미션 2·3번이 동시에 완료돼요.</div>
+            <div class="vis-tip">💡 USDT(테더) 추천 — $1 고정 스테이블코인. 가격 변동이 거의 없어 손실 걱정 없이 조건만 충족!</div>
+            <div class="step-img-wrap">
+              <div style="background:#0d1117;border-radius:16px;overflow:hidden;margin-top:12px;max-width:300px;margin-left:auto;margin-right:auto;">
+                <div style="padding:14px 16px;border-bottom:1px solid #21262d;">
+                  <div style="font-size:12px;font-weight:800;color:#e6edf3;">코빗 거래소</div>
+                  <div style="display:flex;gap:8px;margin-top:8px;">
+                    <div style="background:#1a56db;color:#fff;padding:5px 14px;border-radius:8px;font-size:11px;font-weight:700;">매수</div>
+                    <div style="background:#21262d;color:#8b949e;padding:5px 14px;border-radius:8px;font-size:11px;">매도</div>
+                  </div>
+                </div>
+                <div style="padding:14px 16px;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                    <span style="color:#8b949e;font-size:11px;">추천 코인</span>
+                    <span style="background:rgba(26,86,219,0.25);color:#5ba4ff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;">USDT 스테이블</span>
+                  </div>
+                  <div style="background:#161b22;border-radius:10px;padding:12px;display:flex;align-items:center;justify-content:space-between;">
+                    <div>
+                      <div style="color:#e6edf3;font-size:14px;font-weight:800;">USDT</div>
+                      <div style="color:#8b949e;font-size:10px;margin-top:2px;">테더 · ≈ $1.00 고정</div>
+                    </div>
+                    <div style="text-align:right;">
+                      <div style="color:#3fb950;font-size:13px;font-weight:700;">+0.01%</div>
+                      <div style="color:#8b949e;font-size:10px;">손실 위험 ↓</div>
+                    </div>
+                  </div>
+                  <div style="background:#1a56db;color:#fff;text-align:center;padding:10px;border-radius:10px;margin-top:10px;font-size:12px;font-weight:700;">10,000원 이상 매수 → 미션 완료 ✓</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="vis-step vis-step-last">
+          <div class="vis-dot">5</div>
+          <div class="vis-content">
+            <div class="vis-title">웰컴 미션 완료 & 리워드 확인</div>
+            <div class="vis-desc">3가지 웰컴 미션이 모두 완료되면 <strong>총 15,000원</strong> 리워드가 지급됩니다. 앱 내 리워드/이벤트 메뉴에서 확인하세요.</div>
+            <div class="vis-tip">💡 리워드 반영까지 최대 1~3일 소요될 수 있어요. 당일 안 보여도 걱정 마세요!</div>
+            <div style="background:#f9fafb;border:1px solid #e5e8eb;border-radius:16px;padding:16px;margin-top:12px;">
+              <div style="font-size:12px;font-weight:700;color:#191f28;margin-bottom:12px;">✅ 웰컴 미션 3개 체크리스트</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #d1fadf;border-radius:10px;padding:10px 14px;">
+                  <span style="background:#d1fadf;color:#15803D;font-size:11px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">1</span>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#191f28;">KYC 완료 + 신한은행 계좌 연동</div>
+                    <div style="font-size:10px;color:#6b7684;margin-top:1px;">신분증 인증 + 신한 계좌 등록</div>
+                  </div>
+                  <span style="margin-left:auto;color:#15803D;font-size:16px;">✓</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #d1fadf;border-radius:10px;padding:10px 14px;">
+                  <span style="background:#d1fadf;color:#15803D;font-size:11px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">2</span>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#191f28;">1만원 이상 입금</div>
+                    <div style="font-size:10px;color:#6b7684;margin-top:1px;">신한은행 → 코빗 계좌로 이체</div>
+                  </div>
+                  <span style="margin-left:auto;color:#15803D;font-size:16px;">✓</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #d1fadf;border-radius:10px;padding:10px 14px;">
+                  <span style="background:#d1fadf;color:#15803D;font-size:11px;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">3</span>
+                  <div>
+                    <div style="font-size:12px;font-weight:700;color:#191f28;">자산 1만원 이상 매수</div>
+                    <div style="font-size:10px;color:#6b7684;margin-top:1px;">USDT 등 코인 1만원 이상 구매</div>
+                  </div>
+                  <span style="margin-left:auto;color:#15803D;font-size:16px;">✓</span>
+                </div>
+              </div>
+              <div style="background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border:1px solid #6EE7B7;border-radius:10px;padding:12px 14px;margin-top:12px;text-align:center;">
+                <div style="font-size:14px;font-weight:900;color:#065F46;">🎉 3개 완료 시 15,000원 리워드 지급!</div>
+                <div style="font-size:11px;color:#047857;margin-top:3px;">추천 리워드 5,000원 + 웰컴 미션 10,000원</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /bm-steps -->
+
+      <!-- 완료 안내 -->
+      <div class="bm-complete">
+        <div class="bm-complete-text">🎉 5단계 완료! <strong>15,000원</strong> 리워드가 지급돼요. 리워드는 거래에 바로 사용하거나 조건 충족 후 현금 출금 가능합니다.</div>
+        <div style="margin-top:14px;">
+          <div style="background:#f9fafb;border:1px solid #e5e8eb;border-radius:14px;padding:14px 16px;">
+            <div style="font-size:12px;font-weight:700;color:#191f28;margin-bottom:10px;">💰 리워드 구성</div>
+            <div style="display:flex;gap:10px;">
+              <div style="flex:1;background:#EBF5FF;border-radius:12px;padding:12px;text-align:center;">
+                <div style="font-size:20px;font-weight:900;color:#1a56db;">5,000원</div>
+                <div style="font-size:10px;color:#6b7684;margin-top:3px;">친구 추천 리워드</div>
+              </div>
+              <div style="flex:1;background:#ECFDF5;border-radius:12px;padding:12px;text-align:center;">
+                <div style="font-size:20px;font-weight:900;color:#065F46;">10,000원</div>
+                <div style="font-size:10px;color:#6b7684;margin-top:3px;">웰컴 미션 리워드</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-wrap" style="margin-top:24px;">
+        <div class="faq-title">자주 묻는 질문</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 신한은행 계좌가 없어도 되나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">신한은행 계좌가 없으면 리워드 수령이 불가합니다. 신한 SOL 앱에서 비대면 계좌를 무료로 만들 수 있어요. 10분이면 개설 가능하니 먼저 만들고 진행하세요.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 추천코드를 가입 후에 입력할 수 없나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">안 됩니다. 코빗 추천코드는 반드시 회원가입 화면에서만 입력 가능합니다. 가입 완료 후에는 입력 방법이 없으니 이 페이지 열어둔 채 가입하면서 코드를 복사해 입력하세요.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 마케팅 동의를 나중에 해제해도 되나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">리워드를 받기 전에는 절대 해제하지 마세요. 마케팅 동의 해제 후 재동의해도 리워드가 취소될 수 있습니다. 리워드 수령 후에는 원하시면 해제 가능합니다.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 리워드가 안 들어왔어요 <span class="fq-arr">▼</span></button>
+          <div class="faq-a">① 추천코드 입력 여부, ② KYC 완료 여부, ③ 신한은행 계좌 연동 여부, ④ 마케팅 동의 전체 선택 여부를 확인해보세요. 리워드 반영은 최대 1~3일 소요될 수 있습니다.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 리워드를 현금으로 출금할 수 있나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">리워드는 즉시 거래에 사용 가능하지만 현금 출금은 리워드 금액 이상 거래 조건 충족 후 가능합니다. 앱 내 자산 메뉴 → 원화 출금에서 신청하세요.</div>
+        </div>
+      </div>
+
+      <!-- 함께 보면 좋은 글 — 아코디언 -->
+      <div class="related-section">
+        <div class="related-label">함께 보면 좋은 글</div>
+
+        <!-- 글 1 -->
+        <div class="related-item">
+          <button class="related-q" onclick="toggleRelated(this)">
+            <span class="related-icon">📖</span>
+            <div class="related-meta">
+              <div class="related-meta-title">코빗이 처음이신가요?</div>
+              <div class="related-meta-sub">코빗 거래소 특징과 리워드 구성 상세 안내</div>
+            </div>
+            <span class="related-arr">▼</span>
+          </button>
+          <div class="related-body">
+            <h4>코빗은 어떤 거래소인가요?</h4>
+            <p>코빗(Korbit)은 국내 원화(KRW) 입금이 가능한 가상자산 거래소로, 업비트·빗썸과 동일한 형태의 코인 거래 플랫폼입니다. 신규가입 이벤트로 최대 15,000원 상당의 리워드를 받을 수 있어요.</p>
+            <h4>리워드 구성</h4>
+            <p>신규가입 혜택은 두 가지로 구분됩니다: <strong>추천코드 리워드 5,000원</strong> + <strong>웰컴 미션 완료 리워드 10,000원</strong>. 총 15,000원 상당의 리워드를 획득할 수 있습니다.</p>
+            <h4>어떤 분께 적합한가요?</h4>
+            <p>가상자산 거래소를 처음 써보는 초보자, 소액으로 시작하고 싶은 분에게 적합합니다. 웰컴 미션이 가입 → KYC → 입금 → 매수로 단순하게 구성되어 처음이어도 어렵지 않아요.</p>
+            <div class="ra-tip">💡 가상자산은 고위험 상품입니다. 리워드를 위한 1만원 입금은 투자 목적보다 이벤트 조건 충족용으로 진행하세요.</div>
+          </div>
+        </div>
+
+        <!-- 글 2 -->
+        <div class="related-item">
+          <button class="related-q" onclick="toggleRelated(this)">
+            <span class="related-icon">💰</span>
+            <div class="related-meta">
+              <div class="related-meta-title">코빗 리워드 출금 방법</div>
+              <div class="related-meta-sub">출금 불가 시 해결 방법까지 한 번에</div>
+            </div>
+            <span class="related-arr">▼</span>
+          </button>
+          <div class="related-body">
+            <h4>출금 전 필수 체크</h4>
+            <p>코빗은 원화 출금과 가상자산 출금이 모두 가능합니다. 하지만 특정 조건을 충족해야 출금이 가능해요.</p>
+            <h4>출금 불가 4가지 원인</h4>
+            <p><strong>① KYC 미완료</strong> — 신분증 인증 미완료 시 출금 전면 제한<br>
+            <strong>② 신한은행 계좌 미연동</strong> — 원화 출금 시 신한은행 계좌 필수<br>
+            <strong>③ 리워드 거래 조건 미충족</strong> — 리워드 금액 이상 거래 후 출금 가능<br>
+            <strong>④ 출금 대기 시간</strong> — 보안상 출금 요청 후 일정 시간 대기</p>
+            <h4>출금 방법</h4>
+            <p>코빗 앱 → <strong>자산 메뉴</strong> → <strong>원화 출금</strong>에서 연동된 신한은행 계좌로 출금 신청하면 됩니다.</p>
+            <div class="ra-warn">⚠ 리워드 수령 전 마케팅 동의를 해제하면 리워드 자체가 취소될 수 있습니다!</div>
+          </div>
+        </div>
+
+        <!-- 글 3 -->
+        <div class="related-item">
+          <button class="related-q" onclick="toggleRelated(this)">
+            <span class="related-icon">🔍</span>
+            <div class="related-meta">
+              <div class="related-meta-title">코빗 vs 업비트 vs 빗썸 비교</div>
+              <div class="related-meta-sub">초보자 기준 어느 거래소가 더 좋을까?</div>
+            </div>
+            <span class="related-arr">▼</span>
+          </button>
+          <div class="related-body">
+            <h4>세 거래소 공통점</h4>
+            <p>코빗·업비트·빗썸 모두 국내 원화(KRW) 기반 가상자산 거래소입니다. 회원가입 → KYC → 실명 계좌 연동 후 거래 가능한 구조는 동일해요.</p>
+            <h4>주요 차이점</h4>
+            <p><strong>신규가입 혜택</strong>: 코빗 15,000원 / 빗썸 최대 70,000원 / 코인원 최대 54,000원으로 구성이 다릅니다.<br>
+            <strong>연동 은행</strong>: 코빗은 신한은행, 빗썸은 KB국민은행, 코인원은 NH농협은행이 주요 파트너입니다.<br>
+            <strong>앱 사용성</strong>: 세 거래소 모두 초보자도 이용 가능하나, 메뉴 구성에 차이가 있습니다.</p>
+            <h4>혜택 극대화 전략</h4>
+            <p>혜택을 최대한 받고 싶다면 <strong>빗썸 → 코인원 → 코빗</strong> 순으로 가입하면 최대 139,000원 상당의 리워드를 받을 수 있어요!</p>
+            <div class="ra-tip">💡 이 페이지에서 빗썸(7만원)·코인원(5.4만원) 가이드도 함께 확인해보세요!</div>
+          </div>
+        </div>
+
+      </div><!-- /related-section -->
+
+    </div><!-- /bm-body -->
+  </div><!-- /modal -->
 </div>
 
-<!-- 틱톡 -->
+<!-- 틱톡 Lite — ADAPTIVE UI v2 (상세) -->
 <div class="modal-overlay" id="modal-tiktok">
-  <div class="modal">
+  <div class="modal modal-wide">
     <div class="modal-topbar"></div>
-    <div class="modal-header">
-      <h2>🎵 틱톡 라이트 가이드</h2>
+
+    <!-- 고정 헤더 -->
+    <div class="bm-header">
+      <div class="bm-header-left">
+        <span class="bm-logo">🎵</span>
+        <div>
+          <div class="bm-title">틱톡 Lite 신규 설치 혜택</div>
+          <div class="bm-subtitle">이벤트 확인일 <span id="tt-confirm-date"></span> · 현재까지 지급 완료</div>
+        </div>
+      </div>
       <button class="modal-close" onclick="closeModal('tiktok')">✕</button>
     </div>
-    <div class="modal-body">
-      <div class="modal-reward">
-        <div class="amount">최대 30,000원</div>
-        <div class="label">신규 설치 혜택</div>
+
+    <!-- 스크롤 바디 -->
+    <div class="bm-body">
+
+      <!-- ① 설치 CTA — 최상단 크게 -->
+      <div class="bm-code-block">
+        <div class="bm-code-label">반드시 이 버튼으로만 설치하세요</div>
+        <div style="margin-top:12px;">
+          <a href="https://lite.tiktok.com/t/ZS9eXvD9rC1Mf-yl9ru/" target="_blank"
+             style="display:flex;align-items:center;justify-content:center;gap:10px;background:rgba(255,255,255,0.18);border:2px solid rgba(255,255,255,0.4);color:#fff;padding:16px 24px;border-radius:14px;font-size:16px;font-weight:900;text-decoration:none;letter-spacing:-0.3px;transition:all 0.2s;">
+            지금 틱톡 Lite 가입하고 3만원 받기
+          </a>
+        </div>
+        <div class="bm-code-sub" style="margin-top:10px;">⚠ 앱스토어에서 직접 검색해 설치하면 혜택이 적용되지 않아요</div>
       </div>
-      <ol class="guide-steps">
-        <li><div class="step-content"><strong>틱톡 라이트 설치 (신규만 가능)</strong><span>기존 틱톡과 다른 별도 앱입니다. 반드시 '틱톡 라이트'를 설치해야 해요.</span></div></li>
-        <li><div class="step-content"><strong>초대 링크로 가입</strong><span>아래 초대링크를 통해 가입해야 혜택이 적용됩니다.</span></div></li>
-        <li><div class="step-content"><strong>매일 앱 접속 및 영상 시청</strong><span>하루 15~30분 영상 시청 시 포인트 지급</span></div></li>
-        <li><div class="step-content"><strong>포인트 현금 전환</strong><span>적립된 포인트를 카카오페이/토스로 현금 출금</span></div></li>
-      </ol>
-      <div class="modal-cta">
-        <a href="#" class="btn btn-primary">🎵 틱톡 라이트 초대 링크</a>
+
+      <!-- ② 24시간 핵심 경고 — 강조 -->
+      <div style="background:linear-gradient(135deg,#FEF2F2,#FFF7ED);border:2px solid #F97316;border-radius:16px;padding:18px 20px;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <span style="font-size:24px;line-height:1;">⏰</span>
+          <span style="font-size:15px;font-weight:900;color:#9A3412;letter-spacing:-0.4px;">가입 후 24시간 이내 필수 액션!</span>
+        </div>
+        <div style="font-size:13px;color:#92400E;line-height:1.8;font-weight:500;">
+          앱 가입 직후, 피드 화면에 나타나는 <strong style="color:#7C2D12;background:#FED7AA;padding:1px 5px;border-radius:4px;">동전(P) 포인트 아이콘</strong>을 반드시 눌러야 리워드가 시작돼요.<br>
+          <strong style="color:#9A3412;">24시간이 지나면 아이콘이 사라집니다 — 가입 즉시 클릭하세요!</strong>
+        </div>
       </div>
-    </div>
+
+      <!-- ③ 혜택 + CTA -->
+      <div class="bm-reward-row">
+        <div class="bm-reward-badge">🎁 최대 40,000원 혜택</div>
+        <a href="https://lite.tiktok.com/t/ZS9eXvD9rC1Mf-yl9ru/" target="_blank" class="bm-cta-btn">가입하러 가기 →</a>
+      </div>
+
+      <!-- ④ 구분선 -->
+      <div class="bm-divider"><span>단계별 가이드</span></div>
+
+      <!-- ⑤ 가이드 헤더 -->
+      <div class="bm-guide-header">
+        <span class="bm-guide-title">3단계로 완료돼요</span>
+        <button class="bm-simplify-btn" id="tt-simplify-btn" onclick="ttToggleImages()">📝 텍스트만 보기</button>
+      </div>
+
+      <!-- ⑥ 스텝 타임라인 -->
+      <div class="bm-steps">
+
+        <!-- STEP 1 -->
+        <div class="vis-step">
+          <div class="vis-dot vis-dot-warn">1</div>
+          <div class="vis-content">
+            <div class="vis-title">초대 링크로 틱톡 Lite 설치 <span class="badge-required">필수</span></div>
+            <div class="vis-desc">반드시 위 버튼을 눌러 설치하세요. 앱스토어/플레이스토어에서 직접 검색해 설치하면 <strong>신규가입 이벤트 대상으로 인식되지 않아</strong> 리워드를 받을 수 없어요.</div>
+            <div class="vis-warn">⚠ 기존 TikTok 앱과 다른 별도 앱입니다. TikTok 또는 틱톡 Lite를 단 한 번이라도 설치한 이력이 있다면 제외될 수 있어요.</div>
+            <div class="step-img-wrap">
+              <div class="vis-img-label">실제 초대 화면 — 신규 사용자 전용 ₩30,000 혜택</div>
+              <div class="img-box" style="max-width:320px;margin:0 auto;">
+                <img src="images/tiktok_step1.webp" alt="틱톡 Lite 초대 화면 ₩30,000">
+              </div>
+              <!-- TikTok 스타일 다운로드 버튼 -->
+              <a href="https://lite.tiktok.com/t/ZS9eXvD9rC1Mf-yl9ru/" target="_blank"
+                 style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;background:#fe2c55;color:#fff;padding:16px 20px;border-radius:50px;font-size:15px;font-weight:900;text-decoration:none;letter-spacing:-0.3px;box-shadow:0 6px 20px rgba(254,44,85,0.4);transition:all 0.2s;max-width:320px;margin-left:auto;margin-right:auto;">
+                TikTok Lite 다운로드 또는 열기
+              </a>
+              <div style="text-align:center;font-size:11px;color:var(--slate-400);margin-top:8px;">본 이벤트는 만 19세 이상만 참여할 수 있습니다</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="vis-step">
+          <div class="vis-dot">2</div>
+          <div class="vis-content">
+            <div class="vis-title">계정 만들기 (가입 완료)</div>
+            <div class="vis-desc">앱 실행 후 가입 화면에서 <strong>휴대폰번호</strong> 또는 <strong>이메일</strong>로 가입하세요. 1~2분이면 완료됩니다.</div>
+            <div class="vis-tip">💡 초대 링크로 진입했다면 별도 코드 입력 없이 자동 연결됩니다.</div>
+            <!-- 가입 방법 UI 카드 -->
+            <div style="background:#f9fafb;border:1px solid #e5e8eb;border-radius:16px;padding:18px;margin-top:12px;">
+              <div style="text-align:center;margin-bottom:14px;">
+                <span style="font-size:24px;">🎵</span>
+                <div style="font-size:13px;font-weight:800;color:#191f28;margin-top:4px;">계정 만들기</div>
+                <div style="font-size:11px;color:#8b95a1;margin-top:2px;">틱톡 Lite 신규 가입</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="background:#fff;border:1.5px solid #fe2c55;border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:18px;">📱</span>
+                  <div>
+                    <div style="font-size:13px;font-weight:700;color:#191f28;">휴대폰번호로 계속하기</div>
+                    <div style="font-size:11px;color:#8b95a1;margin-top:1px;">SMS 인증 후 바로 가입</div>
+                  </div>
+                  <span style="margin-left:auto;background:#fe2c55;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:10px;">추천</span>
+                </div>
+                <div style="background:#fff;border:1.5px solid #e5e8eb;border-radius:12px;padding:13px 16px;display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:18px;">✉️</span>
+                  <div>
+                    <div style="font-size:13px;font-weight:700;color:#191f28;">이메일로 계속하기</div>
+                    <div style="font-size:11px;color:#8b95a1;margin-top:1px;">이메일 인증 후 가입</div>
+                  </div>
+                </div>
+                <div style="background:#fff;border:1.5px solid #e5e8eb;border-radius:12px;padding:11px 16px;display:flex;align-items:center;gap:12px;opacity:0.65;">
+                  <span style="font-size:16px;">🔗</span>
+                  <div style="font-size:12px;color:#6b7684;">카카오·네이버 소셜 로그인 (이벤트 적용 여부 불확실)</div>
+                </div>
+              </div>
+              <div style="text-align:center;margin-top:12px;font-size:11px;color:#adb5bd;line-height:1.6;">
+                생년월일 입력 → 이름 입력 → 인증 완료<br>약 1~2분 소요
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="vis-step vis-step-last">
+          <div class="vis-dot vis-dot-warn">3</div>
+          <div class="vis-content">
+            <div class="vis-title">24시간 내 동전(P) 포인트 아이콘 클릭 <span class="badge-required">핵심</span></div>
+            <div class="vis-desc">가입 직후 피드 화면에 나타나는 <strong>동전(P) 포인트 아이콘</strong>을 반드시 클릭하세요. 이 단계를 하지 않으면 리워드가 지급되지 않습니다!</div>
+            <div class="vis-warn">⚠ 가입 후 <strong>24시간 이내</strong>에 반드시 클릭. 미루면 아이콘이 사라집니다!</div>
+            <!-- 동전 아이콘 위치 UI -->
+            <div style="background:#000;border-radius:20px;overflow:hidden;margin-top:12px;max-width:260px;margin-left:auto;margin-right:auto;border:2px solid #333;">
+              <!-- 상단 바 -->
+              <div style="padding:10px 14px 6px;display:flex;justify-content:space-between;align-items:center;">
+                <span style="color:#fff;font-size:12px;font-weight:500;">팔로잉</span>
+                <span style="color:#fe2c55;font-size:12px;font-weight:800;border-bottom:2px solid #fe2c55;padding-bottom:2px;">추천</span>
+                <span style="color:#fff;font-size:14px;">🔍</span>
+              </div>
+              <!-- 피드 영역 -->
+              <div style="background:#1a1a1a;height:110px;display:flex;align-items:center;justify-content:center;position:relative;">
+                <span style="color:#555;font-size:11px;">📹 피드 영상</span>
+                <!-- 동전 아이콘 위치 표시 -->
+                <div style="position:absolute;top:50%;right:14px;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;">
+                  <div style="background:rgba(255,200,0,0.15);border:2px solid #FFD700;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;">
+                    <span style="font-size:20px;">🪙</span>
+                  </div>
+                  <div style="background:#FFD700;color:#000;font-size:9px;font-weight:800;padding:2px 6px;border-radius:6px;white-space:nowrap;">P 포인트</div>
+                </div>
+              </div>
+              <!-- 하단 네비 -->
+              <div style="padding:8px 14px 10px;display:flex;justify-content:space-around;background:#111;border-top:1px solid #222;">
+                <span style="font-size:16px;opacity:0.5;">🏠</span>
+                <span style="font-size:16px;opacity:0.5;">🔍</span>
+                <span style="font-size:16px;opacity:0.5;">➕</span>
+                <span style="font-size:16px;opacity:0.5;">📬</span>
+                <span style="font-size:16px;opacity:0.5;">👤</span>
+              </div>
+              <!-- 안내 -->
+              <div style="background:#fe2c55;padding:10px;text-align:center;">
+                <span style="color:#fff;font-size:11px;font-weight:800;">👆 오른쪽 🪙 아이콘을 탭하세요!</span>
+              </div>
+            </div>
+            <div style="text-align:center;font-size:11px;color:var(--slate-400);margin-top:8px;line-height:1.6;">
+              피드 오른쪽에 금색 동전(🪙) 아이콘이 보이면 바로 탭<br>
+              안 보이면 앱 재시작 후 피드를 위아래로 스크롤
+            </div>
+            <div class="vis-tip" style="margin-top:10px;">💡 이후 매일 앱 접속 & 영상 시청으로 포인트 적립 → 카카오페이·토스·PAYCO로 현금 출금!</div>
+          </div>
+        </div>
+
+      </div><!-- /bm-steps -->
+
+      <!-- 완료 안내 + 현금 출금 증빙 -->
+      <div class="bm-complete">
+        <div class="bm-complete-text">🎉 3단계 완료! 이후 매일 영상 시청으로 포인트를 쌓으면 <strong>최대 40,000원</strong>을 실제 현금으로 출금할 수 있어요.</div>
+        <div style="margin-top:16px;">
+          <div class="vis-img-label" style="margin-bottom:8px;">💸 실제 현금 출금 화면 — 포인트가 진짜 돈이 됩니다</div>
+          <div class="img-box" style="border-radius:16px;overflow:hidden;">
+            <img src="images/tiktok_proof.webp" alt="틱톡 Lite 실제 현금 출금 화면">
+          </div>
+          <div style="font-size:11px;color:#15803D;font-weight:600;margin-top:8px;text-align:center;">PAYCO · 네이버페이 · 은행 송금으로 직접 출금 가능</div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-wrap" style="margin-top:24px;">
+        <div class="faq-title">자주 묻는 질문</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 기존 틱톡 앱이 있어도 되나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">틱톡 Lite는 기존 틱톡과 완전히 별개의 앱입니다. 기존 틱톡을 사용 중이어도 틱톡 Lite가 처음이라면 혜택 적용 가능해요. 단, TikTok Lite를 과거에 한 번이라도 설치한 이력이 있다면 제외될 수 있습니다.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 꼭 초대 링크로 설치해야 하나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">네, 반드시 초대 링크를 통해 설치해야 합니다. 앱스토어에서 직접 검색해 설치하면 혜택이 적용되지 않아요. 나중에 초대 코드를 입력하는 방법도 있지만 성공률이 낮으니 처음부터 초대 링크로 진입하는 것을 강력 권장합니다.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 동전(P) 아이콘이 안 보여요 <span class="fq-arr">▼</span></button>
+          <div class="faq-a">앱 가입 직후 피드 첫 화면에 동전 아이콘이 나타납니다. 보이지 않는다면 앱을 재시작하거나 피드를 위아래로 스크롤해 보세요. 가입 후 24시간이 지나면 아이콘이 사라질 수 있으니 빨리 확인하세요!</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 리워드가 뜨지 않아요 <span class="fq-arr">▼</span></button>
+          <div class="faq-a">① 초대 링크로 설치했는지 확인, ② 가입 후 24시간 내 동전(P) 아이콘을 눌렀는지 확인, ③ 과거 TikTok/TikTok Lite 설치 이력이 있는지 확인해 보세요. 리워드 반영에 수 시간~1일 지연이 생길 수도 있습니다.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Q. 포인트는 어떻게 출금하나요? <span class="fq-arr">▼</span></button>
+          <div class="faq-a">앱 내 포인트 메뉴에서 카카오페이 또는 토스로 현금 전환 후 출금할 수 있습니다. 최소 출금 금액 조건이 있을 수 있으니 포인트가 충분히 쌓인 후 신청하세요.</div>
+        </div>
+      </div>
+
+      <!-- 함께 보면 좋은 글 — 아코디언 -->
+      <div class="related-section">
+        <div class="related-label">함께 보면 좋은 글</div>
+
+        <!-- 글 1 -->
+        <div class="related-item">
+          <button class="related-q" onclick="toggleRelated(this)">
+            <span class="related-icon">📖</span>
+            <div class="related-meta">
+              <div class="related-meta-title">TikTok(틱톡) 처음이신가요?</div>
+              <div class="related-meta-sub">틱톡 Lite가 뭔지 쉽게 설명한 입문글</div>
+            </div>
+            <span class="related-arr">▼</span>
+          </button>
+          <div class="related-body">
+            <h4>한 줄 요약</h4>
+            <p><strong>틱톡</strong>은 짧은 동영상(쇼츠)을 넘겨보는 앱이고, <strong>틱톡 Lite</strong>는 더 가볍게 만든 버전입니다. 유튜브 쇼츠, 인스타 릴스처럼 짧게 보고 넘기는 방식이라 복잡한 기능 없이 그냥 보기만 하면 됩니다.</p>
+            <h4>가입이 어렵지 않나요?</h4>
+            <p>가입은 휴대폰 번호 또는 이메일 인증만 하면 됩니다. 리워드 이벤트는 가입 후 24시간 내 동전(P) 포인트 아이콘 클릭 조건이 있어서, 이 페이지 가이드를 보고 진행하는 게 중요합니다.</p>
+            <h4>안전한 앱인가요?</h4>
+            <p>공식 앱스토어(구글플레이/앱스토어)를 통해 설치하는 앱입니다. 어떤 앱이든 설치 후 권한·알림은 한 번 체크하시는 걸 추천드려요.</p>
+            <div class="ra-tip">💡 리워드 이벤트는 "가입만 하면 끝"이 아닙니다. 가입 후 동전(P) 아이콘 클릭을 꼭 챙기세요!</div>
+          </div>
+        </div>
+
+        <!-- 글 2 -->
+        <div class="related-item">
+          <button class="related-q" onclick="toggleRelated(this)">
+            <span class="related-icon">⚠️</span>
+            <div class="related-meta">
+              <div class="related-meta-title">틱톡 Lite 신규가입 리워드, 그냥 설치하면 안 되는 이유</div>
+              <div class="related-meta-sub">초대링크가 왜 반드시 필요한지 정리</div>
+            </div>
+            <span class="related-arr">▼</span>
+          </button>
+          <div class="related-body">
+            <h4>왜 초대링크로 시작해야 할까?</h4>
+            <p>검색해서 앱을 설치하고 가입하면 절차 자체는 진행됩니다. 다만 <strong>신규가입 리워드 안내가 안 보이거나</strong>, 이벤트 대상이 아닌 경우가 생깁니다.</p>
+            <p>초대링크로 들어가면, 처음 앱을 여는 순간부터 <strong>신규가입 이벤트 기준으로 흐름이 잡히는</strong> 구조입니다.</p>
+            <h4>리워드 혜택 조건</h4>
+            <div class="ra-warn">아래 조건을 모두 충족해야 리워드가 지급됩니다</div>
+            <ul>
+              <li>초대링크를 통해 틱톡 Lite 설치</li>
+              <li>계정 생성 완료</li>
+              <li>가입 후 <strong>24시간 이내</strong> 앱 실행</li>
+              <li>피드 화면의 <strong>동전(P) 포인트 아이콘</strong> 클릭</li>
+            </ul>
+            <h4>해당 여부 정리</h4>
+            <p><span class="ra-ok">✅ 해당</span> — 틱톡 Lite 처음 설치·가입 + 초대링크로 가입한 경우</p>
+            <p><span class="ra-no">❌ 미해당</span> — 예전 설치·가입 이력 있는 계정 / 초대링크 아닌 경로로 설치한 경우</p>
+          </div>
+        </div>
+
+        <!-- 글 3 -->
+        <div class="related-item">
+          <button class="related-q" onclick="toggleRelated(this)">
+            <span class="related-icon">🔍</span>
+            <div class="related-meta">
+              <div class="related-meta-title">틱톡 Lite 리워드 안 뜰 때, 먼저 확인해야 할 5가지</div>
+              <div class="related-meta-sub">리워드가 안 보일 때 체크리스트</div>
+            </div>
+            <span class="related-arr">▼</span>
+          </button>
+          <div class="related-body">
+            <h4>① 진짜 '신규가입자'가 맞는지</h4>
+            <p>이 이벤트는 틱톡 Lite 신규가입자만 대상입니다. 예전에 설치·가입 이력이 있으면 리워드 안내가 안 뜨는 경우가 발생합니다.</p>
+            <h4>② 초대링크 경로로 시작했는지</h4>
+            <p>가장 차이가 컸던 부분입니다. 초대링크로 설치·가입 시 이벤트 흐름이 더 잘 작동합니다. 직접 검색해서 설치했다면 리워드가 안 보일 수 있어요.</p>
+            <h4>③ 가입 후 24시간 내 동전 위젯을 눌렀는지</h4>
+            <p>가입 후 <strong>24시간 이내</strong>에 피드 화면의 동전 위젯을 반드시 클릭해야 합니다. 이를 놓치면 리워드가 등록되지 않을 수 있어요.</p>
+            <h4>④ 동전 위젯이 안 보일 때</h4>
+            <ul>
+              <li>앱 완전 종료 후 재실행</li>
+              <li>다른 계정으로 로그인된 건 아닌지 확인</li>
+              <li>앱 업데이트 후 재실행</li>
+            </ul>
+            <h4>⑤ 리워드 반영 지연</h4>
+            <p>모든 조건을 충족했더라도 리워드 반영에 수 시간~1일이 걸릴 수 있습니다. 하루 정도 기다려보세요.</p>
+            <div class="ra-tip">💡 핵심은 <strong>신규가입자 + 초대링크 + 24시간 내 동전 위젯</strong> 세 가지입니다.</div>
+          </div>
+        </div>
+
+        <!-- 글 4 -->
+        <div class="related-item">
+          <button class="related-q" onclick="toggleRelated(this)">
+            <span class="related-icon">🤔</span>
+            <div class="related-meta">
+              <div class="related-meta-title">틱톡 Lite 신규가입자 조건, 한 번이라도 설치했다면 해당될까?</div>
+              <div class="related-meta-sub">신규 인정 기준 상세 안내</div>
+            </div>
+            <span class="related-arr">▼</span>
+          </button>
+          <div class="related-body">
+            <h4>신규가입자로 인정되는 기준</h4>
+            <p>다음 두 가지를 <strong>동시에</strong> 충족해야 합니다.</p>
+            <ul>
+              <li>틱톡 Lite를 <strong>이번에 처음 설치</strong>하는 경우</li>
+              <li>틱톡 Lite에 <strong>처음 계정을 생성</strong>하는 경우</li>
+            </ul>
+            <h4>신규가입자로 보기 어려운 경우</h4>
+            <ul>
+              <li>예전에 틱톡 Lite를 설치했다가 삭제한 이력이 있는 경우</li>
+              <li>이전에 틱톡 Lite 계정을 만들어 로그인한 이력이 있는 경우</li>
+              <li>같은 기기에서 이미 가입 이력이 있는 경우</li>
+            </ul>
+            <h4>확인 체크리스트</h4>
+            <ul>
+              <li>예전에 틱톡 Lite를 설치해본 기억이 있는지</li>
+              <li>로그인에 사용했던 이메일/번호가 남아있는지</li>
+              <li>동일한 기기에서 가입 시도 이력이 있는지</li>
+            </ul>
+            <div class="ra-warn">⚠ 과거 이력이 있다면 혜택 대상에서 제외될 가능성이 높습니다.</div>
+          </div>
+        </div>
+
+        <!-- 글 5 -->
+        <div class="related-item">
+          <button class="related-q" onclick="toggleRelated(this)">
+            <span class="related-icon">🔗</span>
+            <div class="related-meta">
+              <div class="related-meta-title">틱톡 Lite, 왜 초대링크로 가입하라고 할까?</div>
+              <div class="related-meta-sub">초대링크 vs 일반설치 차이점 비교</div>
+            </div>
+            <span class="related-arr">▼</span>
+          </button>
+          <div class="related-body">
+            <h4>일반 설치로 시작했을 때</h4>
+            <p>검색해서 앱을 설치하고 가입하면 절차 자체는 진행됩니다. 다만 <strong>신규가입 리워드 안내가 안 보이거나</strong>, 이벤트 대상이 아닌 것처럼 처리되는 경우가 있습니다.</p>
+            <h4>초대링크로 시작했을 때</h4>
+            <p>초대링크로 들어가면, 처음 앱을 여는 순간부터 <strong>신규가입 이벤트 기준으로 흐름이 잡힙니다.</strong> 가입 과정 중이나 직후에 리워드 안내가 더 명확하게 보이고, 무엇을 해야 하는지도 분명하게 안내됩니다.</p>
+            <h4>정리</h4>
+            <ul>
+              <li>신규가입 이벤트는 <strong>시작 경로부터 구분됨</strong></li>
+              <li>일반 설치는 이벤트 대상에서 빠질 가능성 있음</li>
+              <li>초대링크는 <strong>이벤트 기준으로 가입을 시작</strong>하는 역할</li>
+            </ul>
+            <div class="ra-tip">💡 처음부터 초대링크로 들어가는 게 가장 확실합니다. "나중에 이벤트 눌러야지"는 위험해요.</div>
+          </div>
+        </div>
+
+      </div><!-- /related-section -->
+
+    </div><!-- /bm-body -->
   </div>
 </div>
 
@@ -1931,7 +3212,7 @@
   (function() {
     var amountWon = 15470000;   // 원 단위 원본값
     var count     = 221;
-    var incList   = [30000, 70000];  // 3만 / 7만 번갈아
+    var incList   = [50000, 70000];  // 5만(코인원) / 7만(빗썸) 번갈아
     var incIdx    = 0;
 
     // 서울 시간 (KST = UTC+9) 기준 MM.DD 포맷
@@ -1991,6 +3272,52 @@
     btn.textContent = isActive ? '📝 텍스트만 보기' : '🖼 사진 보기';
   }
 
+  // ── 코인원 코드 복사 ──
+  function coCopy() {
+    navigator.clipboard.writeText('YVO1IN3H').then(() => {
+      const btn = document.getElementById('co-copy-btn');
+      btn.textContent = '✅ 복사됨'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  function coCopyMid() {
+    navigator.clipboard.writeText('YVO1IN3H').then(() => {
+      const btn = document.getElementById('co-copy-btn-mid');
+      btn.textContent = '✅ 복사됨'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  function toggleRelated(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    btn.closest('.related-section').querySelectorAll('.related-body').forEach(b => b.classList.remove('open'));
+    btn.closest('.related-section').querySelectorAll('.related-q').forEach(q => q.classList.remove('open'));
+    if (!isOpen) {
+      body.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+
+  function ttToggleImages() {
+    const btn = document.getElementById('tt-simplify-btn');
+    const imgs = document.querySelectorAll('#modal-tiktok .step-img-wrap');
+    const isActive = btn.classList.contains('active');
+    imgs.forEach(el => el.classList.toggle('hidden', !isActive));
+    btn.classList.toggle('active', !isActive);
+    btn.textContent = isActive ? '📝 텍스트만 보기' : '🖼 사진 보기';
+  }
+
+  function coToggleImages() {
+    const btn = document.getElementById('co-simplify-btn');
+    const imgs = document.querySelectorAll('#modal-coinone .step-img-wrap');
+    const isActive = btn.classList.contains('active');
+    imgs.forEach(el => el.classList.toggle('hidden', !isActive));
+    btn.classList.toggle('active', !isActive);
+    btn.textContent = isActive ? '📝 텍스트만 보기' : '🖼 사진 보기';
+  }
+
   // 중간 코드 복사
   function bmCopyMid() {
     navigator.clipboard.writeText('MONEYSIG77').then(() => {
@@ -2034,11 +3361,270 @@
     });
   }
 
+  // 코빗 코드 복사
+  function koCopy() {
+    navigator.clipboard.writeText('96346F').then(() => {
+      const btn = document.getElementById('ko-copy-btn');
+      btn.textContent = '✅ 복사됨'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = '복사'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  function koToggleImages() {
+    const btn = document.getElementById('ko-simplify-btn');
+    const imgs = document.querySelectorAll('#modal-kobit .step-img-wrap');
+    const isActive = btn.classList.contains('active');
+    imgs.forEach(el => el.classList.toggle('hidden', !isActive));
+    btn.classList.toggle('active', !isActive);
+    btn.textContent = isActive ? '📝 텍스트만 보기' : '🖼 사진 보기';
+  }
+
+  // 코빗 이벤트 확인일 자동 업데이트 (KST 기준 당일 날짜)
+  (function() {
+    var now = new Date();
+    var kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+    var y = kst.getUTCFullYear();
+    var m = String(kst.getUTCMonth() + 1).padStart(2, '0');
+    var d = String(kst.getUTCDate()).padStart(2, '0');
+    var el = document.getElementById('ko-confirm-date');
+    if (el) el.textContent = y + '.' + m + '.' + d;
+  })();
+
+  // 틱톡 Lite 이벤트 확인일 자동 업데이트 (KST 기준 당일 날짜)
+  (function() {
+    var now = new Date();
+    var kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+    var y = kst.getUTCFullYear();
+    var m = String(kst.getUTCMonth() + 1).padStart(2, '0');
+    var d = String(kst.getUTCDate()).padStart(2, '0');
+    var el = document.getElementById('tt-confirm-date');
+    if (el) el.textContent = y + '.' + m + '.' + d;
+  })();
+
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+<!-- ===== FIREBASE ===== -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script>
+  // ============================================================
+  //  FIREBASE CONFIG — 아래 값을 Firebase 콘솔에서 복사해서 넣으세요
+  //  https://console.firebase.google.com → 프로젝트 설정 → 앱 추가
+  // ============================================================
+  const firebaseConfig = {
+    apiKey:            "YOUR_API_KEY",
+    authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId:         "YOUR_PROJECT_ID",
+    storageBucket:     "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId:             "YOUR_APP_ID"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db   = firebase.firestore();
+
+  // ── 구글 프로바이더 ──
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+  googleProvider.setCustomParameters({ prompt: 'select_account' });
+
+  // ============================================================
+  //  AUTH STATE OBSERVER — 로그인 상태에 따라 헤더 변경
+  // ============================================================
+  auth.onAuthStateChanged(function(user) {
+    const loginBtn  = document.getElementById('header-login-btn');
+    const userMenu  = document.getElementById('user-menu');
+    const avatar    = document.getElementById('user-avatar');
+    const dispName  = document.getElementById('user-display-name');
+    const dispEmail = document.getElementById('user-display-email');
+
+    if (user) {
+      // 로그인됨
+      loginBtn.style.display  = 'none';
+      userMenu.style.display  = 'flex';
+
+      const name = user.displayName || user.email.split('@')[0];
+      avatar.textContent    = name.slice(0, 1).toUpperCase();
+      dispName.textContent  = name;
+      dispEmail.textContent = user.email;
+
+      closeAuthModal();
+    } else {
+      // 비로그인
+      loginBtn.style.display  = '';
+      userMenu.style.display  = 'none';
+    }
+  });
+
+  // ============================================================
+  //  AUTH MODAL — 열기 / 닫기 / 탭 전환
+  // ============================================================
+  function openAuthModal(tab) {
+    document.getElementById('auth-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    switchAuthTab(tab || 'login');
+  }
+
+  function closeAuthModal() {
+    document.getElementById('auth-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+    clearAuthMsgs();
+  }
+
+  function handleAuthOverlayClick(e) {
+    if (e.target === document.getElementById('auth-overlay')) closeAuthModal();
+  }
+
+  function switchAuthTab(tab) {
+    document.getElementById('panel-login').classList.toggle('active',  tab === 'login');
+    document.getElementById('panel-signup').classList.toggle('active', tab === 'signup');
+    document.getElementById('tab-login').classList.toggle('active',    tab === 'login');
+    document.getElementById('tab-signup').classList.toggle('active',   tab === 'signup');
+    clearAuthMsgs();
+  }
+
+  function clearAuthMsgs() {
+    ['login-msg', 'signup-msg'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.className = 'auth-msg'; el.textContent = ''; }
+    });
+  }
+
+  function showMsg(id, text, type) {
+    const el = document.getElementById(id);
+    el.textContent = text;
+    el.className   = 'auth-msg ' + type;
+  }
+
+  function setLoading(btnId, loading) {
+    const btn = document.getElementById(btnId);
+    btn.disabled    = loading;
+    btn.textContent = loading ? '처리 중...' : (btnId === 'login-submit-btn' ? '로그인' : '가입하기');
+  }
+
+  // ============================================================
+  //  구글 로그인 / 가입
+  // ============================================================
+  function signInWithGoogle() {
+    auth.signInWithPopup(googleProvider)
+      .then(function(result) {
+        const user = result.user;
+        if (result.additionalUserInfo && result.additionalUserInfo.isNewUser) {
+          saveUserToFirestore(user, user.displayName || '');
+        }
+      })
+      .catch(function(err) {
+        const panel = document.getElementById('panel-login').classList.contains('active') ? 'login' : 'signup';
+        showMsg(panel + '-msg', getKoreanError(err.code), 'error');
+      });
+  }
+
+  // ============================================================
+  //  이메일 로그인
+  // ============================================================
+  function submitLogin() {
+    const email = document.getElementById('login-email').value.trim();
+    const pw    = document.getElementById('login-password').value;
+    if (!email || !pw) { showMsg('login-msg', '이메일과 비밀번호를 입력해주세요.', 'error'); return; }
+
+    setLoading('login-submit-btn', true);
+    auth.signInWithEmailAndPassword(email, pw)
+      .then(function() { setLoading('login-submit-btn', false); })
+      .catch(function(err) {
+        setLoading('login-submit-btn', false);
+        showMsg('login-msg', getKoreanError(err.code), 'error');
+      });
+  }
+
+  // ============================================================
+  //  이메일 회원가입
+  // ============================================================
+  function submitSignup() {
+    const name  = document.getElementById('signup-name').value.trim();
+    const email = document.getElementById('signup-email').value.trim();
+    const pw    = document.getElementById('signup-password').value;
+
+    if (!name)              { showMsg('signup-msg', '닉네임을 입력해주세요.', 'error'); return; }
+    if (!email)             { showMsg('signup-msg', '이메일을 입력해주세요.', 'error'); return; }
+    if (pw.length < 8)      { showMsg('signup-msg', '비밀번호는 8자 이상이어야 해요.', 'error'); return; }
+
+    setLoading('signup-submit-btn', true);
+    auth.createUserWithEmailAndPassword(email, pw)
+      .then(function(cred) {
+        return cred.user.updateProfile({ displayName: name })
+          .then(function() { saveUserToFirestore(cred.user, name); });
+      })
+      .then(function() { setLoading('signup-submit-btn', false); })
+      .catch(function(err) {
+        setLoading('signup-submit-btn', false);
+        showMsg('signup-msg', getKoreanError(err.code), 'error');
+      });
+  }
+
+  // ============================================================
+  //  Firestore에 회원 정보 저장
+  // ============================================================
+  function saveUserToFirestore(user, name) {
+    return db.collection('users').doc(user.uid).set({
+      uid:       user.uid,
+      email:     user.email,
+      name:      name || user.displayName || '',
+      photoURL:  user.photoURL || '',
+      joinedAt:  firebase.firestore.FieldValue.serverTimestamp(),
+      provider:  user.providerData[0] ? user.providerData[0].providerId : 'email',
+      notifications: true
+    }, { merge: true });
+  }
+
+  // ============================================================
+  //  로그아웃
+  // ============================================================
+  function signOutUser() {
+    auth.signOut().then(function() {
+      document.getElementById('user-dropdown').classList.remove('open');
+    });
+  }
+
+  // ============================================================
+  //  유저 드롭다운 토글
+  // ============================================================
+  function toggleUserDropdown() {
+    document.getElementById('user-dropdown').classList.toggle('open');
+  }
+  // 외부 클릭 시 드롭다운 닫기
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('user-menu');
+    if (menu && !menu.contains(e.target)) {
+      const dd = document.getElementById('user-dropdown');
+      if (dd) dd.classList.remove('open');
+    }
+  });
+
+  // ============================================================
+  //  에러 코드 → 한국어 메시지
+  // ============================================================
+  function getKoreanError(code) {
+    const map = {
+      'auth/email-already-in-use':    '이미 사용 중인 이메일이에요.',
+      'auth/invalid-email':           '이메일 형식이 올바르지 않아요.',
+      'auth/weak-password':           '비밀번호가 너무 짧아요. 8자 이상으로 해주세요.',
+      'auth/user-not-found':          '등록된 이메일이 없어요.',
+      'auth/wrong-password':          '비밀번호가 틀렸어요.',
+      'auth/invalid-credential':      '이메일 또는 비밀번호를 확인해주세요.',
+      'auth/too-many-requests':       '잠시 후 다시 시도해주세요.',
+      'auth/popup-closed-by-user':    '로그인 창이 닫혔어요. 다시 시도해주세요.',
+      'auth/network-request-failed':  '네트워크 연결을 확인해주세요.',
+      'auth/configuration-not-found': 'Firebase 설정이 필요해요. 개발자에게 문의하세요.',
+    };
+    return map[code] || '오류가 발생했어요. 다시 시도해주세요. (' + code + ')';
+  }
 </script>
 </body>
 </html>
